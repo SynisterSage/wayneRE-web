@@ -1,0 +1,44 @@
+:root {
+  --color-brand-cream: #fdfcf8;
+  --color-brand-lake: #2c4a52;
+  --color-brand-sand: #f5f2ed;
+  --color-brand-sage: #e8ede7;
+  --color-stone-900: #222a2f;
+  --color-stone-700: #5c656a;
+  --color-stone-300: #d9d3ca;
+  --color-stone-100: #eeeae3;
+
+  --color-bg: var(--color-brand-cream);
+  --color-surface: var(--color-brand-sand);
+  --color-text: var(--color-stone-900);
+  --color-text-muted: var(--color-stone-700);
+  --color-border: var(--color-stone-300);
+  --color-accent: var(--color-brand-lake);
+  --color-accent-soft: var(--color-brand-sage);
+
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  --content-width: 96rem;
+  --content-width-narrow: 42rem;
+
+  --radius-sm: 0.3125rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.25rem;
+  --radius-pill: 999px;
+
+  --transition-fast: 160ms ease;
+  --transition-base: 220ms ease;
+}

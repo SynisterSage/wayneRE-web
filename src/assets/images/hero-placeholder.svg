@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1400" role="img" aria-label="Placeholder home exterior image">
+  <rect width="1200" height="1400" fill="#E8EDE7"/>
+  <rect y="120" width="1200" height="1080" fill="#d7d2c9"/>
+  <rect x="120" y="360" width="880" height="560" fill="#36444a"/>
+  <rect x="160" y="410" width="800" height="180" fill="#f2ede3"/>
+  <rect x="160" y="630" width="800" height="250" fill="#b79674"/>
+  <rect x="660" y="510" width="260" height="190" fill="#efe8db"/>
+  <rect x="250" y="520" width="120" height="160" fill="#233138"/>
+  <rect x="410" y="520" width="120" height="160" fill="#233138"/>
+  <rect x="570" y="520" width="120" height="160" fill="#233138"/>
+  <circle cx="760" cy="260" r="220" fill="#aeb8bc" opacity="0.35"/>
+  <path d="M330 1200C430 1020 650 930 860 960C990 980 1085 1070 1120 1190L1120 1400H120V1300C190 1270 250 1240 330 1200Z" fill="#264147"/>
+</svg>

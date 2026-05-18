@@ -1,0 +1,84 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -999px;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.site-nav {
+  width: min(100% - 2rem, var(--content-width));
+  margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.site-nav__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.site-nav__links a {
+  text-decoration: none;
+  padding: 0.4rem 0;
+}
+
+.site-nav__links a.is-active {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+}
+
+.hero,
+.local-positioning,
+.pathways,
+.packanack-feature,
+.blog-preview,
+.testimonials,
+.final-cta {
+  width: min(100% - 2rem, var(--content-width));
+  margin-inline: auto;
+  border-top: 1px solid var(--color-border);
+}

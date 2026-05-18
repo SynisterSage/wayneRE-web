@@ -1,0 +1,29 @@
+import { Routes, Route } from 'react-router-dom';
+import Layout from '../components/layout/Layout.jsx';
+import Home from '../pages/Home.jsx';
+import About from '../pages/About.jsx';
+import Buy from '../pages/Buy.jsx';
+import Sell from '../pages/Sell.jsx';
+import PackanackLake from '../pages/PackanackLake.jsx';
+import WayneNJ from '../pages/WayneNJ.jsx';
+import Blog from '../pages/Blog.jsx';
+import Contact from '../pages/Contact.jsx';
+import NotFound from '../pages/NotFound.jsx';
+
+export default function AppRoutes() {
+  return (
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/buy" element={<Buy />} />
+        <Route path="/sell" element={<Sell />} />
+        <Route path="/packanack-lake" element={<PackanackLake />} />
+        <Route path="/wayne-nj" element={<WayneNJ />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
+  );
+}
