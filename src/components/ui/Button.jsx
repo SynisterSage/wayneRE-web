@@ -5,9 +5,9 @@ const baseClasses =
 
 const variantClasses = {
   primary:
-    '!border-brand-lake !bg-brand-lake !text-brand-cream hover:!border-[#2d4950] hover:!bg-[#2d4950] hover:!text-brand-cream',
-  secondary: '!border-stone-300 !bg-transparent !text-stone-900 hover:!bg-stone-50',
-  text: '!border-transparent !bg-transparent px-0 py-0 !text-brand-lake hover:!text-[#203840]',
+    'border-brand-lake! bg-brand-lake! text-brand-cream! hover:border-[#2d4950]! hover:bg-[#2d4950]! hover:text-brand-cream!',
+  secondary: 'border-stone-300! bg-transparent! text-stone-900! hover:bg-stone-50!',
+  text: 'border-transparent! bg-transparent! px-0 py-0 text-brand-lake! hover:text-[#203840]!',
 };
 
 export default function Button({ children, to, href, className = '', variant = 'primary', ...props }) {

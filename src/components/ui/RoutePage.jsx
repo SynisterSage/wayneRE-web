@@ -16,7 +16,7 @@ export default function RoutePage({ title, description, path, eyebrow, children,
             <h1 className="font-serif text-[clamp(2.5rem,4.8vw,4.75rem)] font-medium leading-[1.02] tracking-[-0.03em] text-stone-900">
               {title}
             </h1>
-            <p className="mx-auto mt-8 max-w-[42rem] text-[1rem] leading-[1.8] text-stone-700 sm:text-[1.08rem]">
+            <p className="mx-auto mt-8 max-w-2xl text-[1rem] leading-[1.8] text-stone-700 sm:text-[1.08rem]">
               {description}
             </p>
           </div>
