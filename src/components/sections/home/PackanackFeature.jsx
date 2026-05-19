@@ -40,12 +40,12 @@ export default function PackanackFeature() {
       <Container className="py-16 sm:py-20 lg:py-32">
         <div className="grid gap-14 lg:grid-cols-[minmax(0,42rem)_minmax(0,1fr)] lg:items-center lg:gap-20">
           <div
-            className={`relative mx-auto w-full max-w-[42rem] overflow-visible lg:mx-0 lg:justify-self-start transition-[opacity,transform] duration-700 ease-out motion-reduce:transition-none ${
+            className={`relative mx-auto w-full max-w-2xl overflow-visible lg:mx-0 lg:justify-self-start transition-[opacity,transform] duration-700 ease-out motion-reduce:transition-none ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
             }`}
             style={{ willChange: 'opacity, transform' }}
           >
-            <div className="relative aspect-[4/5] w-full overflow-hidden bg-brand-sand">
+            <div className="relative aspect-4/5 w-full overflow-hidden bg-brand-sand">
               <img
                 src="/hero.jpg"
                 alt="Aerial view of Packanack Lake in Wayne, New Jersey"
@@ -56,7 +56,7 @@ export default function PackanackFeature() {
             </div>
 
             <div
-              className={`mx-auto -mt-12 w-[min(16rem,68%)] bg-[#eceeea] px-6 py-7 shadow-[0_0_0_1px_rgba(44,74,82,0.06)] transition-[opacity,transform] duration-700 ease-out motion-reduce:transition-none sm:w-[16rem] lg:absolute lg:-right-6 lg:bottom-[-2.25rem] lg:mx-0 lg:mt-0 lg:w-[17rem] ${
+              className={`mx-auto -mt-12 w-[min(16rem,68%)] bg-[#eceeea] px-6 py-7 shadow-[0_0_0_1px_rgba(44,74,82,0.06)] transition-[opacity,transform] duration-700 ease-out motion-reduce:transition-none sm:w-[16rem] lg:absolute lg:-right-6 lg:bottom-9 lg:mx-0 lg:mt-0 lg:w-68 ${
                 isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
               }`}
               style={{ transitionDelay: isVisible ? '120ms' : '0ms', willChange: 'opacity, transform' }}
