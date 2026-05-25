@@ -8,7 +8,8 @@ const quickLinks = [
   { label: 'Buy', path: '/buy' },
   { label: 'Sell', path: '/sell' },
   { label: 'Packanack Lake', path: '/packanack-lake' },
-  { label: 'Wayne Journal', path: '/blog' },
+  { label: 'Wayne, NJ', path: '/wayne-nj' },
+  { label: 'Blog', path: '/blog' },
   { label: 'Contact', path: '/contact' },
 ];
 

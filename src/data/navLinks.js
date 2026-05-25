@@ -4,4 +4,5 @@ export const navLinks = [
   { label: 'Buy', path: '/buy' },
   { label: 'Sell', path: '/sell' },
   { label: 'The Lake', path: '/packanack-lake' },
+  { label: 'Wayne, NJ', path: '/wayne-nj' },
 ];
