@@ -6,9 +6,6 @@
 .inner {
   display: grid;
   grid-template-columns: 1fr;
-  width: min(100% - 3rem, var(--content-width));
-  padding-left: 0.5rem;
-  margin-inline: auto;
 }
 
 .content,
@@ -70,7 +67,7 @@
 .secondaryButton {
   min-height: 3.25rem;
   padding: 0.9rem 1.35rem;
-  border-radius: 0;
+  border-radius: var(--radius-sm);
   letter-spacing: 0.01em;
 }
 
@@ -137,8 +134,9 @@
 
 @media (min-width: 56.25rem) {
   .inner {
-    grid-template-columns: minmax(0, 1.13fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
     align-items: stretch;
+    gap: 3rem;
   }
 
   .content {
@@ -164,7 +162,7 @@
 
 @media (min-width: 75rem) {
   .title {
-    font-size: clamp(4.8rem, 6.8vw, 7.5rem);
+    font-size: clamp(4.4rem, 6.1vw, 6.8rem);
   }
 }
 

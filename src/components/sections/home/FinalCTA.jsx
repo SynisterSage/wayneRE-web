@@ -1,110 +1,110 @@
+import { Link } from 'react-router-dom';
 import Button from '../../ui/Button.jsx';
 import Container from '../../ui/Container.jsx';
 
 const contactDetails = [
-  { label: 'Email', value: 'hello@waynenjrealestate.com' },
+  { label: 'Email', value: 'starletferguson@gmail.com' },
   { label: 'Phone', value: '(973) 555-0123' },
   { label: 'Address', value: 'Wayne, New Jersey 07470' },
 ];
 
 export default function FinalCTA() {
   return (
-    <section className="bg-[#1d1a18] text-brand-cream">
-      <Container className="py-16 sm:py-20 lg:py-32">
-        <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start lg:gap-16">
-          <div className="max-w-152">
-            <h2 className="font-serif text-[clamp(2.7rem,4.4vw,4.8rem)] font-medium leading-[0.98] tracking-[-0.03em]">
-              Ready for a different <span className="block italic text-brand-cream">perspective?</span>
+    <section className="bg-brand-sand text-stone-900">
+      <Container className="py-16 sm:py-20 lg:py-24">
+        <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start lg:gap-14">
+          <div className="max-w-104 lg:pt-3">
+            <h2 className="font-serif text-[clamp(2.55rem,4vw,4.5rem)] font-medium leading-[0.98] tracking-[-0.03em] text-stone-900">
+              Ready for a clearer
+              <span className="block italic text-brand-lake">next move?</span>
             </h2>
 
-            <p className="mt-6 max-w-lg text-[1rem] leading-[1.85] text-brand-cream/60 sm:text-[1.08rem]">
-              Whether you are ready to sell, just starting your search, or simply curious about
-              the Packanack lifestyle, the goal is the same: clear local insight and a calm next
-              step.
+            <p className="mt-6 text-[1rem] leading-[1.8] text-stone-700 sm:text-[1.05rem]">
+              Whether you are planning to sell, starting your search, or trying to understand the
+              Wayne and Packanack market, start with a grounded local conversation.
             </p>
 
-            <dl className="mt-12 space-y-5">
+            <dl className="mt-10 space-y-4">
               {contactDetails.map((item) => (
-                <div key={item.label} className="flex items-start gap-4">
-                  <dt className="w-16 text-[0.62rem] font-bold uppercase tracking-[0.3em] text-brand-cream/35">
+                <div key={item.label} className="grid grid-cols-[5.5rem_minmax(0,1fr)] items-center gap-4">
+                  <dt className="whitespace-nowrap text-[0.62rem] font-bold uppercase tracking-[0.28em] text-stone-500">
                     {item.label}
                   </dt>
-                  <dd className="text-[0.98rem] text-brand-cream/90">{item.value}</dd>
+                  <dd className="text-[0.98rem] leading-[1.6] text-stone-800">{item.value}</dd>
                 </div>
               ))}
             </dl>
 
-            <div className="mt-12 flex flex-wrap gap-4">
-              <Button href="#valuation" variant="primary" className="min-w-44">
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Button to="/home-value" variant="primary" className="w-full sm:w-auto">
                 Request a Home Valuation
               </Button>
-              <Button
+              <Link
                 to="/contact"
-                variant="secondary"
-                className="border-brand-cream/20 text-brand-cream! hover:bg-white/5!"
+                className="inline-flex min-h-11 items-center justify-center rounded-sm border border-stone-400 bg-transparent px-4 py-2 text-[0.98rem] font-medium text-stone-900 transition-colors duration-200 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-lake focus-visible:ring-offset-2 focus-visible:ring-offset-brand-sand sm:w-auto"
               >
-                Start a Conversation
-              </Button>
+                Send a Message
+              </Link>
             </div>
           </div>
 
-          <div className="border border-brand-cream/10 bg-white/4 p-6 sm:p-8 lg:p-10">
-            <div className="max-w-136">
-              <p className="font-serif text-[1.35rem] italic leading-[1.3] tracking-[-0.02em] text-brand-cream">
-                Start a Conversation
+          <div className="max-w-lg rounded-none border border-stone-300 bg-brand-cream p-7 text-stone-900 sm:p-8 lg:p-10">
+            <div className="max-w-lg">
+              <p className="font-serif text-[1.25rem] italic leading-[1.3] tracking-[-0.02em] text-stone-900 sm:text-[1.35rem]">
+                Send a note
               </p>
 
-              <form className="mt-8 space-y-6">
-                <div className="grid gap-6 sm:grid-cols-2">
+              <form className="mt-8 space-y-5" onSubmit={(event) => event.preventDefault()}>
+                <div className="grid gap-5 sm:grid-cols-2">
                   <label className="block">
-                    <span className="mb-2 block text-[0.6rem] font-bold uppercase tracking-[0.3em] text-brand-cream/35">
+                    <span className="mb-2 block text-[0.7rem] font-bold uppercase tracking-[0.28em] text-stone-500">
                       Name
                     </span>
                     <input
                       type="text"
                       name="name"
                       placeholder="John Doe"
-                      className="w-full border-0 border-b border-brand-cream/15 bg-transparent px-0 py-3 text-brand-cream placeholder:text-brand-cream/22 focus:border-brand-cream focus:outline-none"
+                      className="w-full border border-stone-300 bg-white px-4 py-3 text-[0.98rem] text-stone-900 placeholder:text-stone-400 focus:border-brand-lake focus:outline-none"
                     />
                   </label>
                   <label className="block">
-                    <span className="mb-2 block text-[0.6rem] font-bold uppercase tracking-[0.3em] text-brand-cream/35">
+                    <span className="mb-2 block text-[0.7rem] font-bold uppercase tracking-[0.28em] text-stone-500">
                       Email
                     </span>
                     <input
                       type="email"
                       name="email"
                       placeholder="john@example.com"
-                      className="w-full border-0 border-b border-brand-cream/15 bg-transparent px-0 py-3 text-brand-cream placeholder:text-brand-cream/22 focus:border-brand-cream focus:outline-none"
+                      className="w-full border border-stone-300 bg-white px-4 py-3 text-[0.98rem] text-stone-900 placeholder:text-stone-400 focus:border-brand-lake focus:outline-none"
                     />
                   </label>
                 </div>
 
                 <label className="block">
-                  <span className="mb-2 block text-[0.6rem] font-bold uppercase tracking-[0.3em] text-brand-cream/35">
-                    Regarding
+                  <span className="mb-2 block text-[0.7rem] font-bold uppercase tracking-[0.28em] text-stone-500">
+                    Interest
                   </span>
                   <input
                     type="text"
-                    name="regarding"
+                    name="interest"
                     placeholder="Selling in Packanack, Buying in Wayne, etc."
-                    className="w-full border-0 border-b border-brand-cream/15 bg-transparent px-0 py-3 text-brand-cream placeholder:text-brand-cream/22 focus:border-brand-cream focus:outline-none"
+                    className="w-full border border-stone-300 bg-white px-4 py-3 text-[0.98rem] text-stone-900 placeholder:text-stone-400 focus:border-brand-lake focus:outline-none"
                   />
                 </label>
 
                 <label className="block">
-                  <span className="mb-2 block text-[0.6rem] font-bold uppercase tracking-[0.3em] text-brand-cream/35">
+                  <span className="mb-2 block text-[0.7rem] font-bold uppercase tracking-[0.28em] text-stone-500">
                     Message
                   </span>
                   <textarea
                     name="message"
                     rows="5"
                     placeholder="How can we help?"
-                    className="min-h-32 w-full resize-none border border-brand-cream/15 bg-transparent px-3 py-3 text-brand-cream placeholder:text-brand-cream/22 focus:border-brand-cream focus:outline-none"
+                    className="min-h-32 w-full resize-none border border-stone-300 bg-white px-4 py-3 text-[0.98rem] text-stone-900 placeholder:text-stone-400 focus:border-brand-lake focus:outline-none"
                   />
                 </label>
 
-                <Button href="#valuation" variant="primary" className="w-full">
+                <Button type="submit" variant="primary" className="w-full">
                   Send Message
                 </Button>
               </form>

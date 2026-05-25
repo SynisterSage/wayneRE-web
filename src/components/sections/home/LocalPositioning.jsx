@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import Container from '../../ui/Container.jsx';
 
 export default function LocalPositioning() {
   const sectionRef = useRef(null);
@@ -34,7 +35,7 @@ export default function LocalPositioning() {
 
   return (
     <section ref={sectionRef} className="bg-brand-cream">
-      <div className="mx-auto w-full max-w-384 px-6">
+      <Container>
         <div
           className={`mx-auto max-w-3xl py-20 text-center transition-[opacity,transform] duration-700 ease-out motion-reduce:transition-none sm:py-24 lg:py-32 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
@@ -80,7 +81,7 @@ export default function LocalPositioning() {
             Local Strategy, Lake Community, Wayne NJ Estate
           </p>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

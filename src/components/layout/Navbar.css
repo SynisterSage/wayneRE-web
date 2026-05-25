@@ -1,0 +1,206 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--color-border);
+  background: rgba(253, 252, 248, 0.98);
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar__top {
+  display: flex;
+  min-height: 3.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.875rem;
+}
+
+.navbar__brand {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.navbar__brand-name {
+  margin-left: 0.6rem;
+  color: var(--color-stone-900);
+  font-size: 1rem;
+  font-weight: 500; /* match hero title weight */
+  line-height: 1;
+  letter-spacing: -0.03em; /* match hero title tracking */
+  font-family: var(--font-serif); /* use the same serif as the hero */
+  display: inline-block;
+}
+
+.navbar__brand-image {
+  display: block;
+  width: auto;
+  height: 1.95rem;
+}
+
+.navbar__desktop {
+  display: none;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.navbar__link,
+.navbar__mobile-link {
+  color: var(--color-stone-700);
+  text-decoration: none;
+  transition: color var(--transition-fast), opacity var(--transition-fast);
+}
+
+.navbar__link {
+  padding: 0.55rem 0.8rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.98rem;
+  line-height: 1.4;
+}
+
+.navbar__link:hover,
+.navbar__mobile-link:hover {
+  color: var(--color-text);
+}
+
+.navbar__link--active,
+.navbar__mobile-link--active {
+  color: var(--color-brand-lake);
+  text-decoration: underline;
+  text-underline-offset: 0.22em;
+}
+
+.navbar__cta {
+  margin-left: 0.75rem;
+  white-space: nowrap;
+}
+
+.navbar__toggle {
+  display: inline-flex;
+  width: auto;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-text);
+  padding: 0.25rem;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), opacity var(--transition-fast);
+}
+
+.navbar__toggle:hover {
+  background: transparent;
+  opacity: 0.75;
+}
+
+.navbar__toggle:focus-visible,
+.navbar__link:focus-visible,
+.navbar__mobile-link:focus-visible,
+.navbar__mobile-cta:focus-visible,
+.navbar__brand:focus-visible {
+  outline: 2px solid var(--color-brand-lake);
+  outline-offset: 2px;
+}
+
+.navbar__toggle-icon {
+  display: grid;
+  gap: 3px;
+}
+
+.navbar__toggle-icon span {
+  display: block;
+  width: 1rem;
+  height: 1px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.navbar__mobile-panel {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-0.5rem);
+  pointer-events: none;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  background: var(--color-brand-cream);
+  transition: max-height 200ms ease, opacity 200ms ease, transform 200ms ease, border-color 200ms ease;
+}
+
+.navbar__mobile-panel--open {
+  max-height: 30rem;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  border-top-color: var(--color-border);
+  border-bottom-color: var(--color-border);
+}
+
+.navbar__mobile {
+  display: grid;
+  gap: 0.25rem;
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.navbar__mobile-link {
+  display: block;
+  padding: 0.7rem 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.navbar__mobile-cta {
+  margin-top: 0.5rem;
+  width: 100%;
+  justify-content: center;
+}
+
+@media (min-width: 900px) {
+  .navbar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .navbar__top {
+    width: 100%;
+  }
+
+  .navbar__desktop {
+    display: inline-flex;
+  }
+
+  .navbar__toggle,
+  .navbar__mobile-panel {
+    display: none;
+  }
+
+  .navbar__brand-image {
+    height: 2rem;
+  }
+}
+
+@media (max-width: 899px) {
+  .navbar__desktop {
+    display: none;
+  }
+  .navbar__brand-name {
+    display: none; /* hide on narrow screens to avoid crowded header */
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar__mobile-panel,
+  .navbar__toggle,
+  .navbar__link,
+  .navbar__mobile-link {
+    transition: none;
+  }
+}

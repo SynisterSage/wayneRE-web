@@ -1,0 +1,338 @@
+.page {
+  background: var(--color-brand-cream);
+}
+
+.container {
+  width: min(100% - 3rem, 76rem);
+  margin-inline: auto;
+}
+
+.hero,
+.sectionSoft,
+.sectionWhite,
+.valuationSection {
+  padding-block: clamp(4rem, 6vw, 7rem);
+}
+
+.sectionSoft {
+  background: var(--color-brand-sand);
+}
+
+.sectionWhite {
+  background: var(--color-brand-cream);
+}
+
+.heroGrid {
+  display: grid;
+  gap: 2rem;
+}
+
+.heroContent,
+.textBlock {
+  max-width: 42rem;
+}
+
+.eyebrow,
+.sectionLabel {
+  margin: 0;
+  color: var(--color-brand-lake);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.heroTitle,
+.sectionTitle {
+  margin: 1rem 0 0;
+  color: var(--color-stone-900);
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+}
+
+.heroTitle {
+  max-width: 16ch;
+  font-size: clamp(3rem, 5vw, 5.25rem);
+}
+
+.sectionTitle {
+  max-width: 15ch;
+  font-size: clamp(2.2rem, 3.6vw, 4rem);
+}
+
+.heroLead,
+.sectionCopy,
+.pillarCopy,
+.serviceItem,
+.embedFallbackCopy {
+  color: var(--color-stone-700);
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.heroLead {
+  max-width: 37rem;
+  margin-top: 1.25rem;
+  font-size: clamp(1rem, 1.1vw, 1.12rem);
+}
+
+.heroActions {
+  margin-top: 1.75rem;
+}
+
+.fullWidthButton {
+  width: fit-content;
+  max-width: 100%;
+}
+
+.sectionCopy {
+  max-width: 42rem;
+  margin-top: 1.1rem;
+}
+
+.sectionCopy p + p {
+  margin-top: 1rem;
+}
+
+.pillarsGrid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.pillar {
+  padding-top: 0.25rem;
+  border-top: 1px solid var(--color-stone-200);
+}
+
+.pillarNumber {
+  margin: 0;
+  color: var(--color-brand-lake);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+}
+
+.pillarTitle {
+  margin: 0.75rem 0 0;
+  color: var(--color-stone-900);
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.pillarCopy {
+  margin: 0.7rem 0 0;
+}
+
+.pointList {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.pointItem {
+  position: relative;
+  padding-left: 1rem;
+  color: var(--color-stone-700);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.pointItem::before {
+  content: '';
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 999px;
+  background: var(--color-brand-lake);
+}
+
+.editorialSplit,
+.localSplit,
+.valuationWrap,
+.bridge {
+  display: grid;
+  gap: 2rem;
+}
+
+.serviceList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-width: 34rem;
+}
+
+.serviceItem {
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--color-stone-200);
+}
+
+.serviceItem:first-child {
+  border-top: 1px solid var(--color-stone-200);
+}
+
+.valuationWrap {
+  align-items: center;
+}
+
+.searchShell {
+  width: 100%;
+  max-width: 48rem;
+}
+
+.searchWindow {
+  overflow: hidden;
+  border: 1px solid var(--color-stone-300);
+  background: var(--color-brand-cream);
+}
+
+.searchWindowBar {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--color-stone-200);
+  background: var(--color-brand-sand);
+}
+
+.windowDot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: var(--color-stone-300);
+}
+
+.windowUrl {
+  margin-left: 0.5rem;
+  color: var(--color-stone-500);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.searchWindowBody {
+  display: grid;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.searchWindowTitle {
+  margin: 0;
+  color: var(--color-stone-900);
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 2vw, 2.4rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.searchWindowCopy {
+  margin: 0;
+  max-width: 38rem;
+  color: var(--color-stone-700);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.searchWindowButton {
+  width: fit-content;
+}
+
+.bridgeButton {
+  margin-top: 1.5rem;
+  width: fit-content;
+  max-width: 100%;
+}
+
+@media (min-width: 56.25rem) {
+  .heroGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pillarsGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.75rem;
+    margin-top: 2.5rem;
+  }
+
+  .editorialSplit,
+  .localSplit,
+  .valuationWrap,
+  .bridge {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+    align-items: start;
+    gap: 3rem;
+  }
+
+  .heroContent {
+    max-width: 46rem;
+  }
+
+  .sectionTitle {
+    max-width: 17ch;
+  }
+
+}
+
+@media (max-width: 56.249rem) {
+  .heroTitle {
+    max-width: 15ch;
+  }
+
+  .sectionTitle {
+    max-width: 18ch;
+  }
+
+  .embedFrame {
+    min-height: 46rem;
+  }
+}
+
+@media (max-width: 39.999rem) {
+  .container {
+    width: min(100% - 3rem, 76rem);
+  }
+
+  .hero,
+  .sectionSoft,
+  .sectionWhite,
+  .valuationSection {
+    padding-block: 3.5rem;
+  }
+
+  .heroTitle {
+    font-size: clamp(2.7rem, 16vw, 3.8rem);
+  }
+
+  .sectionTitle {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+  }
+
+  .heroLead,
+  .sectionCopy,
+  .pillarCopy,
+  .serviceItem,
+  .embedFallbackCopy {
+    font-size: 0.98rem;
+  }
+
+  .searchWindowBody {
+    padding: 1.5rem;
+  }
+
+  .searchWindowButton {
+    width: 100%;
+  }
+}

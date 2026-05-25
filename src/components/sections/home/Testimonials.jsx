@@ -39,35 +39,40 @@ export default function Testimonials() {
           }`}
           style={{ willChange: 'opacity, transform' }}
         >
-          <div className="mb-8 flex justify-center gap-1.5 text-brand-lake" aria-hidden="true">
-            <span className="h-1.5 w-1.5 rounded-full bg-current" />
-            <span className="h-1.5 w-1.5 rounded-full bg-current" />
-            <span className="h-1.5 w-1.5 rounded-full bg-current" />
-            <span className="h-1.5 w-1.5 rounded-full bg-current" />
-          </div>
-
           <div
-            className={`transition-opacity ease-in-out motion-reduce:transition-none ${
-              isFading ? 'opacity-0' : 'opacity-100'
-            }`}
-            style={{ transitionDuration: '360ms', willChange: 'opacity' }}
-            aria-live="polite"
+            className="mx-auto flex w-full max-w-184 flex-col items-center gap-5"
+            style={{ minHeight: '28rem' }}
           >
-            <blockquote className="mx-auto flex min-h-64 max-w-184 flex-col justify-center">
-              <p className="font-serif text-[clamp(1.7rem,2.7vw,3.15rem)] italic leading-[1.32] tracking-[-0.03em] text-stone-900 sm:text-[clamp(1.9rem,2.4vw,3.2rem)]">
-                “{activeTestimonial.quote}”
-              </p>
-              <footer className="mt-10">
-                <p className="font-serif text-[1.1rem] italic leading-none text-stone-900 sm:text-[1.2rem]">
-                  — {activeTestimonial.name}
+            <div
+              className={`w-full transition-opacity ease-in-out motion-reduce:transition-none ${
+                isFading ? 'opacity-0' : 'opacity-100'
+              }`}
+              style={{ transitionDuration: '360ms', willChange: 'opacity' }}
+              aria-live="polite"
+            >
+              <blockquote className="mx-auto flex flex-col justify-center">
+                <p className="font-serif text-[clamp(1.7rem,2.7vw,3.15rem)] italic leading-[1.32] tracking-[-0.03em] text-stone-900 sm:text-[clamp(1.9rem,2.4vw,3.2rem)]">
+                  “{activeTestimonial.quote}”
                 </p>
-                {activeTestimonial.since ? (
-                  <p className="mt-2 text-[0.62rem] font-bold uppercase tracking-[0.3em] text-stone-500">
-                    {activeTestimonial.since}
+                <footer className="mt-10">
+                  <p className="font-serif text-[1.1rem] italic leading-none text-stone-900 sm:text-[1.2rem]">
+                    — {activeTestimonial.name}
                   </p>
-                ) : null}
-              </footer>
-            </blockquote>
+                  {activeTestimonial.since ? (
+                    <p className="mt-2 text-[0.62rem] font-bold uppercase tracking-[0.3em] text-stone-500">
+                      {activeTestimonial.since}
+                    </p>
+                  ) : null}
+                </footer>
+              </blockquote>
+            </div>
+
+            <div className="flex justify-center gap-1.5 text-brand-lake" aria-hidden="true">
+              <span className="h-1.5 w-1.5 rounded-full bg-current" />
+              <span className="h-1.5 w-1.5 rounded-full bg-current" />
+              <span className="h-1.5 w-1.5 rounded-full bg-current" />
+              <span className="h-1.5 w-1.5 rounded-full bg-current" />
+            </div>
           </div>
         </div>
       </Container>

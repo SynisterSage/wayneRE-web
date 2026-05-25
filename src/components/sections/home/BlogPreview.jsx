@@ -25,7 +25,7 @@ export default function BlogPreview() {
               }`}
               style={{ transitionDelay: isVisible ? '80ms' : '0ms', willChange: 'opacity, transform' }}
             >
-              The Wayne <span className="italic">Journal.</span>
+              Wayne <span className="italic">Local Insights</span>
             </h2>
           </div>
 

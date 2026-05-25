@@ -1,0 +1,268 @@
+.page {
+  background: var(--color-brand-cream);
+}
+
+.container {
+  width: min(100% - 2rem, 76rem);
+  margin-inline: auto;
+}
+
+.heroSection,
+.sectionLight,
+.sectionSand {
+  padding-block: clamp(4rem, 6vw, 7rem);
+}
+
+.sectionLight {
+  background: var(--color-brand-cream);
+}
+
+.sectionSand {
+  background: var(--color-brand-sand);
+}
+
+.heroGrid,
+.sectionGrid,
+.finalCta {
+  display: grid;
+  gap: 2rem;
+}
+
+.heroCopy,
+.sectionIntro {
+  max-width: 42rem;
+}
+
+.eyebrow,
+.sectionLabel {
+  margin: 0;
+  color: var(--color-brand-lake);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.heroTitle,
+.sectionTitle {
+  margin: 1rem 0 0;
+  color: var(--color-stone-900);
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+}
+
+.heroTitle {
+  max-width: 12ch;
+  font-size: clamp(3rem, 5vw, 5.35rem);
+}
+
+.sectionTitle {
+  max-width: 15ch;
+  font-size: clamp(2.1rem, 3.6vw, 3.8rem);
+}
+
+.heroLead,
+.sectionCopy,
+.faqAnswer,
+.headshotLabel {
+  color: var(--color-stone-700);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.heroLead,
+.sectionCopy {
+  max-width: 38rem;
+  margin-top: 1.1rem;
+}
+
+.heroButton,
+.inlineButton {
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 1.6rem;
+}
+
+.headshotWrap {
+  display: grid;
+  justify-items: center;
+  gap: 0.85rem;
+  align-self: start;
+}
+
+.headshot {
+  width: min(18rem, 72vw);
+}
+
+.headshotImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.headshotLabel,
+.headshotContact {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.headshotContact {
+  display: none;
+}
+
+.socialRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  width: min(18rem, 72vw);
+}
+
+.socialLink {
+  display: inline-flex;
+  min-width: 2.1rem;
+  min-height: 2.1rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-stone-200);
+  border-radius: 999px;
+  color: var(--color-stone-700);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.socialLink:hover {
+  border-color: var(--color-brand-lake);
+  color: var(--color-brand-lake);
+  background: color-mix(in srgb, var(--color-brand-lake) 6%, white);
+}
+
+.sectionCopy p + p {
+  margin-top: 1rem;
+}
+
+.faqList {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.faqItem {
+  border-top: 1px solid var(--color-stone-200);
+  padding-top: 0.85rem;
+}
+
+.faqSummary {
+  cursor: pointer;
+  list-style: none;
+  color: var(--color-stone-900);
+  font-size: 1.06rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.faqSummary::-webkit-details-marker {
+  display: none;
+}
+
+.faqSummary::after {
+  content: '+';
+  float: right;
+  color: var(--color-brand-lake);
+  font-weight: 400;
+}
+
+.faqItem[open] .faqSummary::after {
+  content: '–';
+}
+
+.faqAnswer {
+  padding-top: 0.85rem;
+  max-width: 44rem;
+}
+
+.faqAnswer p {
+  margin: 0;
+}
+
+.finalCta {
+  align-items: start;
+}
+
+@media (min-width: 48rem) {
+  .heroGrid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(16rem, 0.95fr);
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .sectionGrid,
+  .finalCta {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .headshotWrap {
+    justify-self: end;
+    justify-items: end;
+  }
+
+  .socialRow {
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 47.999rem) {
+  .heroTitle {
+    max-width: 13ch;
+  }
+}
+
+@media (max-width: 39.999rem) {
+  .container {
+    width: min(100% - 1.25rem, 76rem);
+  }
+
+  .heroSection,
+  .sectionLight,
+  .sectionSand {
+    padding-block: 3.5rem;
+  }
+
+  .heroTitle {
+    font-size: clamp(2.6rem, 14vw, 3.7rem);
+  }
+
+  .sectionTitle {
+    font-size: clamp(1.95rem, 9vw, 2.8rem);
+  }
+
+  .heroGrid,
+  .sectionGrid,
+  .finalCta {
+    gap: 1.5rem;
+  }
+
+  .heroButton,
+  .inlineButton {
+    width: 100%;
+  }
+
+  .socialRow {
+    width: 100%;
+  }
+}

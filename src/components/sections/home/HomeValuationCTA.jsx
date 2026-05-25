@@ -1,6 +1,7 @@
 import Button from '../../ui/Button.jsx';
 import Container from '../../ui/Container.jsx';
 import { useScrollReveal } from '../../../hooks/useScrollReveal.js';
+import styles from './HomeValuationCTA.module.css';
 
 const points = [
   'Local pricing context',
@@ -12,11 +13,11 @@ export default function HomeValuationCTA() {
   const [sectionRef, isVisible] = useScrollReveal();
 
   return (
-    <section ref={sectionRef} id="valuation" className="bg-brand-cream">
+    <section ref={sectionRef} id="valuation" className={styles.section}>
       <Container className="py-18 sm:py-24 lg:py-32">
-        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start lg:gap-16">
+        <div className={styles.grid}>
           <div
-            className={`max-w-2xl transition-[opacity,transform] duration-700 ease-out motion-reduce:transition-none ${
+            className={`${styles.left} transition-[opacity,transform] duration-700 ease-out motion-reduce:transition-none ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
             }`}
             style={{ willChange: 'opacity, transform' }}
@@ -49,34 +50,33 @@ export default function HomeValuationCTA() {
           </div>
 
           <div
-            className={`border border-stone-200 bg-white/40 px-6 py-7 transition-[opacity,transform] duration-700 ease-out motion-reduce:transition-none sm:px-8 sm:py-8 lg:mt-2 ${
+            className={`${styles.right} transition-[opacity,transform] duration-700 ease-out motion-reduce:transition-none ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
             }`}
             style={{ transitionDelay: isVisible ? '120ms' : '0ms', willChange: 'opacity, transform' }}
           >
-            <div className="grid gap-5">
+            <ol className={styles.list}>
               {points.map((point, index) => (
-                <div
+                <li
                   key={point}
-                  className="border-b border-stone-200 pb-4 transition-[opacity,transform] duration-700 ease-out motion-reduce:transition-none last:border-b-0 last:pb-0"
-                  style={{
-                    transitionDelay: isVisible ? `${index * 90 + 190}ms` : '0ms',
-                    transform: isVisible ? 'translateY(0)' : 'translateY(10px)',
-                    opacity: isVisible ? 1 : 0,
-                  }}
+                  className={`transition-[opacity,transform] duration-700 ease-out motion-reduce:transition-none ${styles.item}`}
+                  style={{ transitionDelay: isVisible ? `${index * 90 + 190}ms` : '0ms' }}
                 >
-                  <p className="text-[1rem] leading-[1.6] text-stone-800">{point}</p>
-                </div>
+                  <div className={styles.row}>
+                    <span className={styles.index}>{String(index + 1).padStart(2, '0')}</span>
+                    <p className={styles.label}>{point}</p>
+                  </div>
+                </li>
               ))}
-            </div>
+            </ol>
 
             <div
-              className={`mt-8 transition-[opacity,transform] duration-700 ease-out motion-reduce:transition-none ${
+              className={`transition-[opacity,transform] duration-700 ease-out motion-reduce:transition-none ${styles.buttonWrap} ${
                 isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
               }`}
               style={{ transitionDelay: isVisible ? '430ms' : '0ms', willChange: 'opacity, transform' }}
             >
-              <Button href="#valuation" variant="primary" className="w-full sm:w-auto">
+              <Button to="/home-value" variant="primary" className="w-full sm:w-auto">
                 Request a Home Valuation
               </Button>
             </div>

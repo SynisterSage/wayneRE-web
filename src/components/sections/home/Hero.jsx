@@ -1,11 +1,12 @@
 import Button from '../../ui/Button.jsx';
+import Container from '../../ui/Container.jsx';
 import heroImage from '/hero.jpg';
 import styles from './Hero.module.css';
 
 export default function Hero() {
   return (
     <section className={styles.hero} aria-labelledby="home-hero-title">
-      <div className={styles.inner}>
+      <Container className={styles.inner}>
         <header className={styles.content}>
           <p className={styles.eyebrow}>
             Wayne &amp; Packanack Lake
@@ -57,7 +58,7 @@ export default function Hero() {
             </footer>
           </blockquote>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

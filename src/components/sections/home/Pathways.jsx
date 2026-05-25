@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Container from '../../ui/Container.jsx';
 
 const pathways = [
   {
@@ -12,7 +13,7 @@ const pathways = [
     imageClass: 'object-center',
   },
   {
-    title: "The Buyer's Advisory",
+    title: "Buying in Wayne",
     description:
       "Finding your place in Wayne requires more than a search. We offer a local's guide to neighborhoods, schools, and lake culture.",
     href: '/buy',
@@ -56,7 +57,7 @@ export default function Pathways() {
 
   return (
     <section ref={sectionRef} className="bg-brand-sand">
-      <div className="mx-auto w-full max-w-384 px-6 pt-14 pb-20 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-32">
+      <Container className="pt-14 pb-20 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-32">
         <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
           {pathways.map((pathway, index) => (
             <article
@@ -109,7 +110,7 @@ export default function Pathways() {
             </article>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

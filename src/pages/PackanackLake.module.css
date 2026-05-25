@@ -1,0 +1,339 @@
+.page {
+  background: var(--color-brand-cream);
+}
+
+.container {
+  width: min(100% - 2rem, 76rem);
+  margin-inline: auto;
+}
+
+.heroSection,
+.sectionLight,
+.sectionSand {
+  padding-block: clamp(4rem, 6vw, 7rem);
+}
+
+.sectionLight {
+  background: var(--color-brand-cream);
+}
+
+.sectionSand {
+  background: var(--color-brand-sand);
+}
+
+.heroGrid,
+.contextGrid,
+.finalCta {
+  display: grid;
+  gap: 2rem;
+}
+
+.heroCopy,
+.textBlock {
+  max-width: 42rem;
+}
+
+.eyebrow,
+.sectionLabel {
+  margin: 0;
+  color: var(--color-brand-lake);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.heroTitle,
+.sectionTitle {
+  margin: 1rem 0 0;
+  color: var(--color-stone-900);
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+}
+
+.heroTitle {
+  max-width: 12ch;
+  font-size: clamp(3rem, 5vw, 5.4rem);
+}
+
+.sectionTitle {
+  max-width: 16ch;
+  font-size: clamp(2.1rem, 3.6vw, 3.8rem);
+}
+
+.heroLead,
+.sectionCopy,
+.pointCopy,
+.noteItem {
+  color: var(--color-stone-700);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.heroLead,
+.sectionCopy {
+  max-width: 38rem;
+  margin-top: 1.1rem;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 1.8rem;
+}
+
+.heroVisual {
+  order: 1;
+}
+
+.heroVisual {
+  order: 1;
+  /* give the hero visual a controlled height so the carousel crops reliably */
+  height: clamp(18rem, 28vw, 36rem);
+}
+
+/* Carousel / hero image adjustments */
+.carousel {
+  position: relative;
+  height: 100%;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.carouselViewport {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.carouselSlide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  transition: transform 380ms var(--transition-base), opacity 300ms ease;
+  will-change: transform, opacity;
+}
+
+.carouselSlide[data-active="true"] {
+  z-index: 1;
+}
+
+.carouselImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+  border: 1px solid var(--color-stone-200);
+}
+
+.pointsGrid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.point {
+  padding-top: 0.4rem;
+  border-top: 1px solid var(--color-stone-200);
+}
+
+.pointTitle {
+  margin: 0.7rem 0 0;
+  color: var(--color-stone-900);
+  font-size: 1.18rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.pointCopy {
+  margin: 0.6rem 0 0;
+}
+
+.contextGrid {
+  gap: 2rem;
+}
+
+.contextCard {
+  display: grid;
+  gap: 1rem;
+  max-width: 42rem;
+}
+
+.contextButton,
+.finalButton {
+  width: fit-content;
+  max-width: 100%;
+}
+
+.noteList {
+  display: grid;
+  gap: 0.85rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  max-width: 44rem;
+}
+
+.noteItem {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.noteItem::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 999px;
+  background: var(--color-brand-lake);
+}
+
+.finalCta {
+  align-items: center;
+}
+
+.galleryGrid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.galleryItem img {
+  display: block;
+  width: 100%;
+  height: 18rem;
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid var(--color-stone-200);
+  border-radius: 6px;
+}
+
+@media (min-width: 48rem) {
+  .heroGrid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .heroVisual {
+    order: 0;
+  }
+
+  .pointsGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.25rem;
+  }
+
+  .galleryGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-top: 1.5rem;
+  }
+
+  /* Carousel styles */
+  .carousel {
+    margin-top: 1rem;
+  }
+
+.carouselControls {
+    position: absolute;
+    top: 50%;
+    left: 0.75rem;
+    right: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 20;
+    pointer-events: none;
+  }
+
+  .carouselButton {
+    pointer-events: auto;
+    background: rgba(34, 42, 47, 0.75);
+    color: var(--color-brand-cream);
+    border: 0;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.45rem;
+    transition: background 180ms ease;
+  }
+
+  .carouselButton:hover {
+    background: rgba(34, 42, 47, 0.9);
+  }
+
+  .contextGrid,
+  .finalCta {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .contextButton,
+  .finalButton {
+    align-self: center;
+  }
+
+  .textBlock .finalButton {
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 47.999rem) {
+  .heroTitle {
+    max-width: 13ch;
+  }
+
+  .heroVisual {
+    margin-top: 0.5rem;
+  }
+
+  .carouselControls {
+    display: none;
+  }
+}
+
+@media (max-width: 39.999rem) {
+  .container {
+    width: min(100% - 1.25rem, 76rem);
+  }
+
+  .heroSection,
+  .sectionLight,
+  .sectionSand {
+    padding-block: 3.5rem;
+  }
+
+  .heroTitle {
+    font-size: clamp(2.7rem, 15vw, 3.7rem);
+  }
+
+  .sectionTitle {
+    font-size: clamp(1.95rem, 9vw, 2.8rem);
+  }
+
+  .heroActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .heroActions > *,
+  .contextButton,
+  .finalButton {
+    width: 100%;
+  }
+}
