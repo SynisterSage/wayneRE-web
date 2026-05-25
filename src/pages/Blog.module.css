@@ -7,8 +7,13 @@
   margin-inline: auto;
 }
 
-.introSection,
+.introSection {
+  background: var(--color-brand-cream);
+  padding-block: clamp(4rem, 6vw, 7rem);
+}
+
 .listSection {
+  background: var(--color-brand-sand);
   padding-block: clamp(4rem, 6vw, 7rem);
 }
 
@@ -47,7 +52,7 @@
 
 .grid {
   display: grid;
-  gap: 3rem;
+  gap: 2rem;
 }
 
 .state {
@@ -58,8 +63,8 @@
 
 @media (min-width: 48rem) {
   .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 3.25rem 2rem;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
   }
 }
 

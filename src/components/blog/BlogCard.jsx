@@ -1,5 +1,4 @@
 import {Link} from 'react-router-dom';
-import Button from '../ui/Button.jsx';
 import {categoryLabels} from '../../sanity/queries.js';
 import {urlFor} from '../../sanity/image.js';
 import styles from './BlogCard.module.css';
@@ -41,9 +40,9 @@ export default function BlogCard({post}) {
 
         {post.excerpt ? <p className={styles.excerpt}>{post.excerpt}</p> : null}
 
-        <Button to={`/blog/${post.slug}`} variant="text" className={styles.link}>
+        <Link to={`/blog/${post.slug}`} className={styles.link}>
           Read Article
-        </Button>
+        </Link>
       </div>
     </article>
   );

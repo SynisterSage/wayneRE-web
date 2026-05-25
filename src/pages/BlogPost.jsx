@@ -1,7 +1,6 @@
 import {useEffect, useState} from 'react';
 import {Link, useParams} from 'react-router-dom';
 import {Seo} from '../utils/seo.js';
-import Button from '../components/ui/Button.jsx';
 import Container from '../components/ui/Container.jsx';
 import Section from '../components/ui/Section.jsx';
 import PortableContent from '../components/blog/PortableContent.jsx';
@@ -78,9 +77,9 @@ export default function BlogPost() {
           <Container className={styles.container}>
             <p className={styles.state}>Unable to load article right now.</p>
             <div className={styles.backWrap}>
-              <Button to="/blog" variant="text">
+              <Link to="/blog" className={styles.backLink}>
                 Back to Journal
-              </Button>
+              </Link>
             </div>
           </Container>
         </Section>
@@ -96,9 +95,9 @@ export default function BlogPost() {
           <Container className={styles.container}>
             <p className={styles.state}>Article not found.</p>
             <div className={styles.backWrap}>
-              <Button to="/blog" variant="text">
+              <Link to="/blog" className={styles.backLink}>
                 Back to Journal
-              </Button>
+              </Link>
             </div>
           </Container>
         </Section>
@@ -154,9 +153,9 @@ export default function BlogPost() {
               </div>
 
               <div className={styles.footerBack}>
-                <Button to="/blog" variant="text">
+                <Link to="/blog" className={styles.backLink}>
                   Back to Journal
-                </Button>
+                </Link>
               </div>
             </article>
           </Container>
