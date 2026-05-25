@@ -124,7 +124,6 @@ export default function Consult() {
                 A focused conversation for buying, selling, home valuation questions, or early
                 planning.
               </p>
-              <p className={styles.duration}>30 minutes</p>
             </div>
 
             <div className={styles.typeCard}>
@@ -140,161 +139,150 @@ export default function Consult() {
                 <span className={styles.typeCardMetaValue}>30 minutes</span>
               </span>
             </div>
+            {/* Moved consultation request form here to keep related content together */}
+            <form className={styles.requestPanel} onSubmit={handleSubmit}>
+              <div className={styles.panelIntro}>
+                <p className={styles.sectionLabel}>Request Details</p>
+                <h2 className={styles.sectionTitle}>Share a preferred time.</h2>
+                <p className={styles.sectionCopy}>Starlet will follow up to confirm availability.</p>
+              </div>
+
+              <div className={styles.requestGrid}>
+                <div className={styles.requestColumn}>
+                  <label className={styles.field}>
+                    <span>Preferred Date</span>
+                    <input
+                      type="date"
+                      name="preferredDate"
+                      value={form.preferredDate}
+                      onChange={handleChange}
+                      required
+                    />
+                  </label>
+
+                  <label className={styles.field}>
+                    <span>Preferred Time</span>
+                    <select
+                      name="preferredTime"
+                      value={form.preferredTime}
+                      onChange={handleChange}
+                      required
+                    >
+                      {timeOptions.map((option) => (
+                        <option key={option} value={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+
+                  <label className={styles.field}>
+                    <span>Second Choice Date</span>
+                    <input
+                      type="date"
+                      name="secondChoiceDate"
+                      value={form.secondChoiceDate}
+                      onChange={handleChange}
+                    />
+                  </label>
+
+                  <label className={styles.field}>
+                    <span>Second Choice Time</span>
+                    <select
+                      name="secondChoiceTime"
+                      value={form.secondChoiceTime}
+                      onChange={handleChange}
+                    >
+                      {timeOptions.map((option) => (
+                        <option key={option} value={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                </div>
+
+                <div className={styles.requestColumn}>
+                  <label className={styles.field}>
+                    <span>Full Name</span>
+                    <input
+                      type="text"
+                      name="fullName"
+                      autoComplete="name"
+                      value={form.fullName}
+                      onChange={handleChange}
+                      required
+                    />
+                  </label>
+
+                  <label className={styles.field}>
+                    <span>Email</span>
+                    <input
+                      type="email"
+                      name="email"
+                      autoComplete="email"
+                      value={form.email}
+                      onChange={handleChange}
+                      required
+                    />
+                  </label>
+
+                  <label className={styles.field}>
+                    <span>Phone</span>
+                    <input
+                      type="tel"
+                      name="phone"
+                      autoComplete="tel"
+                      value={form.phone}
+                      onChange={handleChange}
+                      required
+                    />
+                  </label>
+
+                  <label className={styles.field}>
+                    <span>I am interested in</span>
+                    <select name="interest" value={form.interest} onChange={handleChange} required>
+                      {interestOptions.map((option) => (
+                        <option key={option} value={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+
+                  <label className={`${styles.field} ${styles.spanTwo}`}>
+                    <span>Message</span>
+                    <textarea
+                      name="message"
+                      rows="5"
+                      value={form.message}
+                      onChange={handleChange}
+                      placeholder="Share anything helpful for the conversation."
+                    />
+                  </label>
+                </div>
+              </div>
+
+              <div className={styles.actionsRow}>
+                <Button type="submit" variant="primary" className={styles.submitButton}>
+                  {status === 'loading' ? 'Sending request...' : 'Request Consultation'}
+                </Button>
+
+                {feedback ? (
+                  <p
+                    className={`${styles.feedback} ${
+                      status === 'error' ? styles.feedbackError : styles.feedbackSuccess
+                    }`}
+                    role="status"
+                    aria-live="polite"
+                  >
+                    {feedback}
+                  </p>
+                ) : null}
+              </div>
+            </form>
           </Container>
         </Section>
-
-        <Section className={styles.requestSection} id="consult-request-panel">
-            <Container className={styles.container}>
-              <form className={styles.requestPanel} onSubmit={handleSubmit}>
-                <div className={styles.panelIntro}>
-                  <p className={styles.sectionLabel}>Request Details</p>
-                  <h2 className={styles.sectionTitle}>Share a preferred time.</h2>
-                  <p className={styles.sectionCopy}>
-                    Starlet will follow up to confirm availability.
-                  </p>
-                </div>
-
-                <div className={styles.requestGrid}>
-                  <div className={styles.requestColumn}>
-                    <label className={styles.field}>
-                      <span>Preferred Date</span>
-                      <input
-                        type="date"
-                        name="preferredDate"
-                        value={form.preferredDate}
-                        onChange={handleChange}
-                        required
-                      />
-                    </label>
-
-                    <label className={styles.field}>
-                      <span>Preferred Time</span>
-                      <select
-                        name="preferredTime"
-                        value={form.preferredTime}
-                        onChange={handleChange}
-                        required
-                      >
-                        {timeOptions.map((option) => (
-                          <option key={option} value={option}>
-                            {option}
-                          </option>
-                        ))}
-                      </select>
-                    </label>
-
-                    <label className={styles.field}>
-                      <span>Second Choice Date</span>
-                      <input
-                        type="date"
-                        name="secondChoiceDate"
-                        value={form.secondChoiceDate}
-                        onChange={handleChange}
-                      />
-                    </label>
-
-                    <label className={styles.field}>
-                      <span>Second Choice Time</span>
-                      <select
-                        name="secondChoiceTime"
-                        value={form.secondChoiceTime}
-                        onChange={handleChange}
-                      >
-                        {timeOptions.map((option) => (
-                          <option key={option} value={option}>
-                            {option}
-                          </option>
-                        ))}
-                      </select>
-                    </label>
-                  </div>
-
-                  <div className={styles.requestColumn}>
-                    <label className={styles.field}>
-                      <span>Full Name</span>
-                      <input
-                        type="text"
-                        name="fullName"
-                        autoComplete="name"
-                        value={form.fullName}
-                        onChange={handleChange}
-                        required
-                      />
-                    </label>
-
-                    <label className={styles.field}>
-                      <span>Email</span>
-                      <input
-                        type="email"
-                        name="email"
-                        autoComplete="email"
-                        value={form.email}
-                        onChange={handleChange}
-                        required
-                      />
-                    </label>
-
-                    <label className={styles.field}>
-                      <span>Phone</span>
-                      <input
-                        type="tel"
-                        name="phone"
-                        autoComplete="tel"
-                        value={form.phone}
-                        onChange={handleChange}
-                        required
-                      />
-                    </label>
-
-                    <label className={styles.field}>
-                      <span>I am interested in</span>
-                      <select
-                        name="interest"
-                        value={form.interest}
-                        onChange={handleChange}
-                        required
-                      >
-                        {interestOptions.map((option) => (
-                          <option key={option} value={option}>
-                            {option}
-                          </option>
-                        ))}
-                      </select>
-                    </label>
-
-                    <label className={`${styles.field} ${styles.spanTwo}`}>
-                      <span>Message</span>
-                      <textarea
-                        name="message"
-                        rows="5"
-                        value={form.message}
-                        onChange={handleChange}
-                        placeholder="Share anything helpful for the conversation."
-                      />
-                    </label>
-                  </div>
-                </div>
-
-                <div className={styles.actionsRow}>
-                  <Button type="submit" variant="primary" className={styles.submitButton}>
-                    {status === 'loading' ? 'Sending request...' : 'Request Consultation'}
-                  </Button>
-
-                  {feedback ? (
-                    <p
-                      className={`${styles.feedback} ${
-                        status === 'error' ? styles.feedbackError : styles.feedbackSuccess
-                      }`}
-                      role="status"
-                      aria-live="polite"
-                    >
-                      {feedback}
-                    </p>
-                  ) : null}
-                </div>
-              </form>
-            </Container>
-          </Section>
       </main>
     </>
   );

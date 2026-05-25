@@ -195,6 +195,14 @@
   background: var(--color-brand-cream);
 }
 
+/* Ensure search frame never causes page overflow and sizes to its container */
+.searchShell,
+.searchWindow {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+}
+
 .searchWindowBar {
   display: flex;
   align-items: center;
@@ -330,6 +338,12 @@
 
   .searchWindowBody {
     padding: 1.5rem;
+  }
+
+  /* Allow the URL in the faux browser bar to wrap on very small screens to avoid overflow */
+  .windowUrl {
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 
   .searchWindowButton {

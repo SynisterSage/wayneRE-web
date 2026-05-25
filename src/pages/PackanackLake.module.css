@@ -305,6 +305,11 @@
   .carouselControls {
     display: none;
   }
+
+  /* Add top spacing so CTA isn't too close to the copy on small/medium screens */
+  .textBlock .finalButton {
+    margin-top: 1.5rem;
+  }
 }
 
 @media (max-width: 39.999rem) {
