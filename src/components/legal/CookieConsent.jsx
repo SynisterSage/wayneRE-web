@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { loadGoogleAnalytics, trackPageView } from '../../utils/analytics.js';
+import { loadGoogleAnalytics, markPageViewTracked, trackPageView } from '../../utils/analytics.js';
 import { Link } from 'react-router-dom';
 import './CookieConsent.css';
 
@@ -32,11 +32,9 @@ export default function CookieConsent() {
     setConsent(value);
     if (value === 'accepted') {
       loadGoogleAnalytics();
-      try {
-        trackPageView(window.location.pathname + window.location.search);
-      } catch {
-        // swallow
-      }
+      const currentPath = window.location.pathname + window.location.search;
+      markPageViewTracked(currentPath);
+      trackPageView(currentPath);
     }
   }
 

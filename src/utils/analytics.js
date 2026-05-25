@@ -1,6 +1,7 @@
 // analytics.js
 // Minimal wrapper to dynamically load Google Analytics only after user consent.
 const GA_ID = import.meta.env.VITE_GA_MEASUREMENT_ID;
+const trackedPageViews = new Set();
 
 export function isGaLoaded() {
   return typeof window !== 'undefined' && typeof window.gtag === 'function';
@@ -32,12 +33,23 @@ export function trackPageView(path) {
   if (!isGaLoaded()) return;
   try {
     window.gtag('event', 'page_view', { page_path: path });
+    trackedPageViews.add(path);
   } catch {
     // swallow errors — analytics should not break the app
   }
 }
 
+export function hasTrackedPageView(path) {
+  return trackedPageViews.has(path);
+}
+
+export function markPageViewTracked(path) {
+  trackedPageViews.add(path);
+}
+
 export default {
   loadGoogleAnalytics,
   trackPageView,
+  hasTrackedPageView,
+  markPageViewTracked,
 };

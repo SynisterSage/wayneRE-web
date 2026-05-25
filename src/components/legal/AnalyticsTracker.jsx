@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
-import { loadGoogleAnalytics, trackPageView } from '../../utils/analytics.js';
+import { hasTrackedPageView, loadGoogleAnalytics, trackPageView } from '../../utils/analytics.js';
 
 const STORAGE_KEY = 'wnre_cookie_consent';
 
@@ -24,7 +24,7 @@ export default function AnalyticsTracker() {
     // Load GA (idempotent) and then track if we haven't already tracked this path.
     loadGoogleAnalytics();
 
-    if (lastTrackedRef.current !== path) {
+    if (lastTrackedRef.current !== path && !hasTrackedPageView(path)) {
       try {
         trackPageView(path);
         lastTrackedRef.current = path;
