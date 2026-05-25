@@ -38,7 +38,6 @@ const carouselImages = [
   '/carousel/lake4.jpg',
   '/carousel/lake5.jpeg',
   '/carousel/lake6.jpeg',
-  '/carousel/lake7.jpeg',
   '/carousel/lake8.jpeg',
   '/carousel/lake9.jpg',
   '/carousel/lake10.jpeg',

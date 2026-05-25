@@ -1,12 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Container from '../../ui/Container.jsx';
 import { testimonials } from '../../../data/testimonials.js';
 import { useScrollReveal } from '../../../hooks/useScrollReveal.js';
+
+const DISPLAY_DURATION = 7000;
+const FADE_DURATION = 360;
+const FADE_RESET_DELAY = 24;
 
 export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
   const [sectionRef, isVisible] = useScrollReveal();
+  const advanceTimerRef = useRef(null);
+  const fadeResetTimerRef = useRef(null);
 
   useEffect(() => {
     const reducedMotion =
@@ -17,15 +23,45 @@ export default function Testimonials() {
       return undefined;
     }
 
-    const interval = window.setInterval(() => {
-      setIsFading(true);
-      window.setTimeout(() => {
-        setActiveIndex((current) => (current + 1) % testimonials.length);
-        window.setTimeout(() => setIsFading(false), 24);
-      }, 360);
-    }, 7000);
+    let disposed = false;
 
-    return () => window.clearInterval(interval);
+    const clearTimers = () => {
+      if (advanceTimerRef.current) {
+        window.clearTimeout(advanceTimerRef.current);
+        advanceTimerRef.current = null;
+      }
+      if (fadeResetTimerRef.current) {
+        window.clearTimeout(fadeResetTimerRef.current);
+        fadeResetTimerRef.current = null;
+      }
+    };
+
+    const scheduleNext = () => {
+      clearTimers();
+      advanceTimerRef.current = window.setTimeout(() => {
+        if (disposed) return;
+
+        setIsFading(true);
+        fadeResetTimerRef.current = window.setTimeout(() => {
+          if (disposed) return;
+
+          setActiveIndex((current) => (current + 1) % testimonials.length);
+          fadeResetTimerRef.current = window.setTimeout(() => {
+            if (disposed) return;
+
+            setIsFading(false);
+            scheduleNext();
+          }, FADE_RESET_DELAY);
+        }, FADE_DURATION);
+      }, DISPLAY_DURATION);
+    };
+
+    scheduleNext();
+
+    return () => {
+      disposed = true;
+      clearTimers();
+    };
   }, []);
 
   const activeTestimonial = testimonials[activeIndex];
