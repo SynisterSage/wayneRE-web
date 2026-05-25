@@ -6,6 +6,7 @@ import { siteConfig, siteRoutes } from '../src/config/site.js';
 const rootDir = process.cwd();
 const publicDir = resolve(rootDir, 'public');
 const envPath = resolve(rootDir, '.env');
+const envLocalPath = resolve(rootDir, '.env.local');
 
 function parseEnv(content) {
   const values = {};
@@ -34,12 +35,18 @@ function parseEnv(content) {
 }
 
 async function readEnvFallback() {
-  try {
-    const content = await readFile(envPath, 'utf8');
-    return parseEnv(content);
-  } catch {
-    return {};
+  const values = {};
+
+  for (const filePath of [envPath, envLocalPath]) {
+    try {
+      const content = await readFile(filePath, 'utf8');
+      Object.assign(values, parseEnv(content));
+    } catch {
+      // ignore missing env files
+    }
   }
+
+  return values;
 }
 
 function escapeXml(value) {
@@ -64,7 +71,7 @@ async function fetchBlogPosts(projectId, dataset) {
       projectId,
       dataset,
       apiVersion: '2025-01-01',
-      useCdn: true,
+      useCdn: false,
       perspective: 'published',
     });
 
