@@ -8,6 +8,7 @@ import Sell from '../pages/Sell.jsx';
 import PackanackLake from '../pages/PackanackLake.jsx';
 import WayneNJ from '../pages/WayneNJ.jsx';
 import Blog from '../pages/Blog.jsx';
+import BlogPost from '../pages/BlogPost.jsx';
 import Contact from '../pages/Contact.jsx';
 import PrivacyPolicy from '../pages/PrivacyPolicy.jsx';
 import TermsOfService from '../pages/TermsOfService.jsx';
@@ -25,6 +26,7 @@ export default function AppRoutes() {
         <Route path="/packanack-lake" element={<PackanackLake />} />
         <Route path="/wayne-nj" element={<WayneNJ />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />

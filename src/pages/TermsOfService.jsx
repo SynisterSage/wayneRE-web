@@ -29,6 +29,11 @@ const termsSections = [
       'This site may link to third-party services or resources. We are not responsible for the content, policies, or performance of those sites.',
   },
   {
+    title: 'Third-party services',
+    body:
+      'The site may use third-party services such as Google Analytics and Sanity to measure traffic, manage content, and support site operation. Those services are governed by their own terms and privacy policies.',
+  },
+  {
     title: 'Changes to these terms',
     body:
       'We may update these terms from time to time. Changes take effect when posted to this page, and continued use of the site means you accept the updated terms.',

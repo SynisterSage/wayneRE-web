@@ -9,19 +9,24 @@ const policySections = [
       'We may collect information you choose to share through contact forms, email, or newsletter signups. This can include your name, email address, phone number, and property interests.',
   },
   {
+    title: 'Website analytics and cookies',
+    body:
+      'We use Google Analytics to understand how visitors use the site and to improve the experience. Depending on your browser and settings, Google Analytics may collect traffic data such as page activity, approximate location, browser and device information, and may use cookies or similar identifiers to distinguish sessions. You can manage cookies through your browser settings and may be able to use Google’s analytics opt-out tools.',
+  },
+  {
+    title: 'Content management and publishing',
+    body:
+      'We use Sanity as a content management platform to create, organize, and publish blog and editorial content on the site. Sanity may process technical or operational data in connection with those services according to its own policies.',
+  },
+  {
     title: 'How we use it',
     body:
-      'We use this information to respond to inquiries, provide real estate guidance, share market updates when requested, and improve the site experience.',
+      'We use information you share to respond to inquiries, provide real estate guidance, share updates when requested, and improve the site experience. Analytics data helps us understand what content is useful and where the site can be clearer.',
   },
   {
     title: 'Sharing',
     body:
-      'We do not sell personal information. We may share details with trusted service providers who help operate the website or deliver requested services.',
-  },
-  {
-    title: 'Cookies and analytics',
-    body:
-      'We may use basic analytics or similar tools to understand traffic and improve performance. These tools help us see what pages are useful and where the site can be clearer.',
+      'We do not sell personal information. We may share details with trusted service providers that help operate the website, deliver requested services, publish content, or measure site performance, including Sanity and Google Analytics. Google Analytics uses cookies and similar technologies for measurement, and Sanity may process technical data needed to host and publish site content.',
   },
   {
     title: 'Your choices',

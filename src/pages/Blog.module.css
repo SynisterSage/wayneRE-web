@@ -1,0 +1,79 @@
+.page {
+  background: var(--color-brand-cream);
+}
+
+.container {
+  width: min(100% - 2rem, 76rem);
+  margin-inline: auto;
+}
+
+.introSection,
+.listSection {
+  padding-block: clamp(4rem, 6vw, 7rem);
+}
+
+.intro {
+  max-width: 42rem;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--color-brand-lake);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 1rem 0 0;
+  color: var(--color-stone-900);
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 5vw, 5.1rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  max-width: 11ch;
+}
+
+.lead {
+  margin: 1.1rem 0 0;
+  max-width: 38rem;
+  color: var(--color-stone-700);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.grid {
+  display: grid;
+  gap: 3rem;
+}
+
+.state {
+  color: var(--color-stone-700);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+@media (min-width: 48rem) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3.25rem 2rem;
+  }
+}
+
+@media (max-width: 39.999rem) {
+  .container {
+    width: min(100% - 1.25rem, 76rem);
+  }
+
+  .introSection,
+  .listSection {
+    padding-block: 3.5rem;
+  }
+
+  .title {
+    font-size: clamp(2.6rem, 14vw, 3.7rem);
+  }
+}

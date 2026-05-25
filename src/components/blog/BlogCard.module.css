@@ -1,0 +1,74 @@
+.card {
+  display: grid;
+  gap: 1rem;
+}
+
+.imageLink {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--color-stone-200);
+  background: var(--color-brand-sand);
+}
+
+.image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.content {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  color: var(--color-stone-500);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  color: var(--color-stone-900);
+  font-family: var(--font-serif);
+  font-size: clamp(1.55rem, 2vw, 2.15rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+}
+
+.title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.title a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--color-stone-400);
+  text-underline-offset: 0.14em;
+}
+
+.excerpt {
+  margin: 0;
+  color: var(--color-stone-700);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.link {
+  justify-self: start;
+  margin-top: 0.15rem;
+}
+
+@media (max-width: 39.999rem) {
+  .title {
+    font-size: clamp(1.45rem, 9vw, 1.9rem);
+  }
+}
