@@ -47,7 +47,7 @@ export default function PackanackFeature() {
           >
             <div className="relative aspect-4/5 w-full overflow-hidden bg-brand-sand">
               <img
-                src="/hero.jpg"
+                src="/specific.jpeg"
                 alt="Aerial view of Packanack Lake in Wayne, New Jersey"
                 className="absolute inset-0 h-full w-full object-cover object-[center_18%]"
                 loading="lazy"

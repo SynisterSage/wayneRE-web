@@ -57,7 +57,7 @@ export default function Navbar() {
               </NavLink>
             ))}
 
-            <Button to="/contact" variant="secondary" className="navbar__cta">
+            <Button to="/consult" variant="secondary" className="navbar__cta">
               Book your free consult
             </Button>
           </nav>
@@ -97,12 +97,7 @@ export default function Navbar() {
               </NavLink>
             ))}
 
-            <Button
-              to="/contact"
-              variant="secondary"
-              className="navbar__mobile-cta"
-              onClick={() => setIsOpen(false)}
-            >
+            <Button to="/consult" variant="secondary" className="navbar__mobile-cta" onClick={() => setIsOpen(false)}>
               Book your free consult
             </Button>
           </nav>

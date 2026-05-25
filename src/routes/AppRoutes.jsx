@@ -10,6 +10,7 @@ import WayneNJ from '../pages/WayneNJ.jsx';
 import Blog from '../pages/Blog.jsx';
 import BlogPost from '../pages/BlogPost.jsx';
 import Contact from '../pages/Contact.jsx';
+import Consult from '../pages/Consult.jsx';
 import PrivacyPolicy from '../pages/PrivacyPolicy.jsx';
 import TermsOfService from '../pages/TermsOfService.jsx';
 import NotFound from '../pages/NotFound.jsx';
@@ -27,8 +28,10 @@ export default function AppRoutes() {
         <Route path="/wayne-nj" element={<WayneNJ />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="/consult" element={<Consult />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="*" element={<NotFound />} />
       </Route>

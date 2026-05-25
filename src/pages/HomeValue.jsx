@@ -3,6 +3,7 @@ import { Seo } from '../utils/seo.js';
 import Button from '../components/ui/Button.jsx';
 import Container from '../components/ui/Container.jsx';
 import Section from '../components/ui/Section.jsx';
+import { submitFormSubmit } from '../utils/formSubmit.js';
 import styles from './HomeValue.module.css';
 
 const FORM_ENDPOINT = 'https://formsubmit.co/ajax/starletferguson@gmail.com';
@@ -61,19 +62,7 @@ export default function HomeValue() {
     payload.append('Additional Comments', form.comments);
 
     try {
-      const response = await fetch(FORM_ENDPOINT, {
-        method: 'POST',
-        body: payload,
-        headers: {
-          Accept: 'application/json',
-        },
-      });
-
-      const data = await response.json().catch(() => null);
-
-      if (!response.ok) {
-        throw new Error(data?.message || 'Unable to send request.');
-      }
+      await submitFormSubmit(FORM_ENDPOINT, payload);
 
       setForm(initialForm);
       setStatus('success');

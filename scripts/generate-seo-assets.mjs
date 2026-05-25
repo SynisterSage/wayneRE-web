@@ -132,6 +132,7 @@ async function main() {
     `${primaryPages}\n\n` +
     `## Canonical profile pages\n` +
     `- About: ${new URL('/about', siteConfig.url).toString()}\n` +
+    `- Consultation: ${new URL('/consult', siteConfig.url).toString()}\n` +
     `- Contact: ${new URL('/contact', siteConfig.url).toString()}\n` +
     `- Home valuation: ${new URL('/home-value', siteConfig.url).toString()}\n\n` +
     `## Topic map\n` +
@@ -146,6 +147,7 @@ async function main() {
     `## Page summaries\n` +
     `- Home: brand landing page for Starlet Ferguson and Wayne NJ real estate.\n` +
     `- About: background, approach, and local market positioning.\n` +
+    `- Consultation: appointment request flow for buyers, sellers, and valuation conversations.\n` +
     `- Buy: buyer guidance and market process.\n` +
     `- Sell: seller strategy, preparation, and market context.\n` +
     `- Packanack Lake: neighborhood-specific guidance and local context.\n` +

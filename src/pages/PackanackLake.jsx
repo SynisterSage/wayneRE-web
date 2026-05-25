@@ -31,6 +31,19 @@ const localNotes = [
   'Local context matters more here than a generic home search filter.',
 ];
 
+const carouselImages = [
+  '/carousel/lake1.jpeg',
+  '/carousel/lake2.jpeg',
+  '/carousel/lake3.jpeg',
+  '/carousel/lake4.jpg',
+  '/carousel/lake5.jpeg',
+  '/carousel/lake6.jpeg',
+  '/carousel/lake7.jpeg',
+  '/carousel/lake8.jpeg',
+  '/carousel/lake9.jpg',
+  '/carousel/lake10.jpeg',
+];
+
 function Carousel({ images = [], autoPlay = true, interval = 4500 }) {
   const [index, setIndex] = useState(0);
   const startX = useRef(null);
@@ -138,11 +151,7 @@ export default function PackanackLake() {
               </div>
 
               <div className={styles.heroVisual} aria-hidden="true">
-                <Carousel
-                  images={["/hero.jpg", "/hero.jpg", "/hero.jpg"]}
-                  autoPlay={true}
-                  interval={5000}
-                />
+                <Carousel images={carouselImages} autoPlay={true} interval={5000} />
               </div>
             </div>
           </Container>

@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Container from '../ui/Container.jsx';
+import { submitFormSubmit } from '../../utils/formSubmit.js';
 
 const quickLinks = [
   { label: 'About', path: '/about' },
@@ -120,6 +122,9 @@ function FooterLegalLink({ link }) {
 }
 
 export default function Footer() {
+  const [subscribeStatus, setSubscribeStatus] = useState('idle');
+  const [subscribeFeedback, setSubscribeFeedback] = useState('');
+
   return (
     <footer className="border-t border-stone-300/40 bg-brand-cream text-stone-900">
       <Container className="py-10 sm:py-12 lg:py-14">
@@ -217,20 +222,75 @@ export default function Footer() {
               Market notes and Packanack updates, sent occasionally.
             </p>
 
-            <form className="mt-3 flex max-w-sm overflow-hidden border border-stone-300 bg-white sm:mt-4">
+            <form
+              className="mt-3 flex max-w-sm overflow-hidden border border-stone-300 bg-white sm:mt-4"
+              onSubmit={async (event) => {
+                event.preventDefault();
+                const form = event.currentTarget;
+                const email = form.email.value?.trim();
+                if (!email) return;
+
+                setSubscribeStatus('loading');
+                setSubscribeFeedback('');
+
+                const fd = new FormData();
+                fd.append('_subject', 'Newsletter signup — Wayne Journal');
+                fd.append('_template', 'table');
+                fd.append('_captcha', 'false');
+                fd.append('Newsletter Email', email);
+
+                try {
+                  await submitFormSubmit(
+                    'https://formsubmit.co/ajax/starletferguson@gmail.com',
+                    fd,
+                  );
+                  form.reset();
+                  setSubscribeStatus('success');
+                  setSubscribeFeedback('Sent.');
+                  setTimeout(() => {
+                    setSubscribeStatus('idle');
+                    setSubscribeFeedback('');
+                  }, 2500);
+                } catch (error) {
+                  console.error(error);
+                  setSubscribeStatus('error');
+                  setSubscribeFeedback('Try again.');
+                  setTimeout(() => {
+                    setSubscribeStatus('idle');
+                    setSubscribeFeedback('');
+                  }, 3000);
+                }
+              }}
+            >
               <input
                 type="email"
                 name="email"
+                aria-label="Email address"
                 placeholder="Email address"
                 className="min-w-0 flex-1 border-0 bg-transparent px-3 py-2.5 text-[0.92rem] text-stone-900 placeholder:text-stone-400 focus:outline-none sm:px-4 sm:py-3 sm:text-[0.95rem]"
+                required
               />
               <button
                 type="submit"
-                className="border-0 bg-stone-900 px-4 py-2.5 text-[0.92rem] text-brand-cream transition-colors duration-200 hover:bg-stone-800 sm:py-3 sm:text-[0.95rem]"
+                disabled={subscribeStatus === 'loading'}
+                className="flex items-center justify-center gap-2 border-0 bg-stone-900 px-4 py-2.5 text-[0.92rem] text-brand-cream transition-colors duration-200 hover:bg-stone-800 disabled:opacity-60 sm:py-3 sm:text-[0.95rem]"
               >
-                Join
+                {subscribeStatus === 'loading' ? (
+                  'Sending'
+                ) : subscribeStatus === 'success' ? (
+                  <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden>
+                    <path fill="none" stroke="currentColor" strokeWidth="2" d="M4 12l4 4L20 4" />
+                  </svg>
+                ) : (
+                  'Join'
+                )}
               </button>
             </form>
+            {subscribeFeedback ? (
+              <p className="mt-2 text-[0.78rem] leading-normal text-stone-500">
+                {subscribeFeedback}
+              </p>
+            ) : null}
           </div>
         </div>
 

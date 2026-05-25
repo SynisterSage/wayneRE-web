@@ -9,6 +9,7 @@ const pathways = [
       'Preparation is our greatest competitive advantage. Starlet Ferguson helps you curate and position your home for a careful market transition.',
     href: '/sell',
     cta: 'Explore Selling Strategy',
+    imageSrc: '/selling.jpeg',
     imageAlt: 'A modern interior with glass walls and a quiet hallway',
     imageClass: 'object-center',
   },
@@ -18,6 +19,7 @@ const pathways = [
       "Finding your place in Wayne requires more than a search. Starlet Ferguson offers a local's guide to neighborhoods, schools, and lake culture.",
     href: '/buy',
     cta: 'Learn About Buying in Wayne',
+    imageSrc: '/buying.jpeg',
     imageAlt: 'A contemporary exterior with a pool and landscaped outdoor space',
     imageClass: 'object-[center_right]',
   },
@@ -77,7 +79,7 @@ export default function Pathways() {
                 style={{ transitionDelay: isVisible ? `${index * 140 + 90}ms` : '0ms' }}
               >
                 <img
-                  src="/hero.jpg"
+                  src={pathway.imageSrc}
                   alt={pathway.imageAlt}
                   className={`h-72 w-full object-cover transition-transform duration-700 ease-out motion-reduce:transition-none motion-reduce:transform-none group-hover:scale-105 sm:h-88 lg:h-96 ${pathway.imageClass}`}
                   loading={index === 0 ? 'eager' : 'lazy'}

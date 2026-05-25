@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../../ui/Button.jsx';
 import Container from '../../ui/Container.jsx';
+import { submitFormSubmit } from '../../../utils/formSubmit.js';
 
 const contactDetails = [
   { label: 'Email', value: 'starletferguson@gmail.com' },
@@ -13,6 +15,54 @@ const contactDetails = [
 ];
 
 export default function FinalCTA() {
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    interest: '',
+    message: '',
+  });
+  const [status, setStatus] = useState('idle');
+  const [feedback, setFeedback] = useState('');
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setForm((current) => ({ ...current, [name]: value }));
+
+    if (status !== 'loading') {
+      setStatus('idle');
+      setFeedback('');
+    }
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    setStatus('loading');
+    setFeedback('');
+
+    const payload = new FormData();
+    payload.append('_subject', 'New Website Message from Home Page');
+    payload.append('_template', 'table');
+    payload.append('_captcha', 'false');
+    payload.append('Name', form.name);
+    payload.append('Email', form.email);
+    payload.append('Interest', form.interest);
+    payload.append('Message', form.message);
+
+    try {
+      await submitFormSubmit('https://formsubmit.co/ajax/starletferguson@gmail.com', payload);
+      setForm({ name: '', email: '', interest: '', message: '' });
+      setStatus('success');
+      setFeedback('Your message has been sent. Starlet will follow up shortly.');
+    } catch (error) {
+      setStatus('error');
+      setFeedback(
+        error instanceof Error
+          ? error.message
+          : 'Something went wrong. Please try again or email Starlet directly.',
+      );
+    }
+  }
+
   return (
     <section className="bg-brand-sand text-stone-900">
       <Container className="py-16 sm:py-20 lg:py-24">
@@ -72,7 +122,10 @@ export default function FinalCTA() {
                 Send a note
               </p>
 
-              <form className="mt-8 space-y-5" onSubmit={(event) => event.preventDefault()}>
+              <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
+                <input type="hidden" name="_subject" value="New Website Message from Home Page" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_captcha" value="false" />
                 <div className="grid gap-5 sm:grid-cols-2">
                   <label className="block">
                     <span className="mb-2 block text-[0.7rem] font-bold uppercase tracking-[0.28em] text-stone-500">
@@ -82,7 +135,10 @@ export default function FinalCTA() {
                       type="text"
                       name="name"
                       placeholder="John Doe"
+                      value={form.name}
+                      onChange={handleChange}
                       className="w-full border border-stone-300 bg-white px-4 py-3 text-[0.98rem] text-stone-900 placeholder:text-stone-400 focus:border-brand-lake focus:outline-none"
+                      required
                     />
                   </label>
                   <label className="block">
@@ -93,7 +149,10 @@ export default function FinalCTA() {
                       type="email"
                       name="email"
                       placeholder="john@example.com"
+                      value={form.email}
+                      onChange={handleChange}
                       className="w-full border border-stone-300 bg-white px-4 py-3 text-[0.98rem] text-stone-900 placeholder:text-stone-400 focus:border-brand-lake focus:outline-none"
+                      required
                     />
                   </label>
                 </div>
@@ -106,6 +165,8 @@ export default function FinalCTA() {
                     type="text"
                     name="interest"
                     placeholder="Selling in Packanack, Buying in Wayne, etc."
+                    value={form.interest}
+                    onChange={handleChange}
                     className="w-full border border-stone-300 bg-white px-4 py-3 text-[0.98rem] text-stone-900 placeholder:text-stone-400 focus:border-brand-lake focus:outline-none"
                   />
                 </label>
@@ -118,13 +179,28 @@ export default function FinalCTA() {
                     name="message"
                     rows="5"
                     placeholder="How can we help?"
+                    value={form.message}
+                    onChange={handleChange}
                     className="min-h-32 w-full resize-none border border-stone-300 bg-white px-4 py-3 text-[0.98rem] text-stone-900 placeholder:text-stone-400 focus:border-brand-lake focus:outline-none"
+                    required
                   />
                 </label>
 
                 <Button type="submit" variant="primary" className="w-full">
-                  Send Message
+                  {status === 'loading' ? 'Sending request...' : 'Send Message'}
                 </Button>
+
+                {feedback ? (
+                  <p
+                    className={`text-[0.88rem] leading-[1.6] ${
+                      status === 'error' ? 'text-[#7d4c44]' : 'text-stone-600'
+                    }`}
+                    role="status"
+                    aria-live="polite"
+                  >
+                    {feedback}
+                  </p>
+                ) : null}
               </form>
             </div>
           </div>

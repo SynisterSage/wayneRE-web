@@ -75,28 +75,45 @@ async function main() {
       .map((item) => [String(item.postId), item]),
   );
 
+  const legacyDocs = dryRun
+    ? []
+    : await client.fetch('*[_type == "post" && _id match "post.*"]{_id}');
+
   console.log(`Found ${posts.length} published blog posts in export.`);
   console.log(`Found ${attachmentsById.size} attachments.`);
+  console.log(`Found ${legacyDocs.length} legacy dot-id posts to replace.`);
 
   let imported = 0;
 
   for (const post of posts) {
     const featuredAttachmentId = post.meta._thumbnail_id;
     const attachment = featuredAttachmentId ? attachmentsById.get(String(featuredAttachmentId)) : null;
-    const featuredImage = !dryRun && attachment?.attachmentUrl
+    const featuredImageAsset = !dryRun && attachment?.attachmentUrl
       ? await uploadSanityImage(attachment.attachmentUrl, post.title)
+      : null;
+    const featuredImage = featuredImageAsset
+      ? {
+          _type: 'image',
+          asset: {
+            _type: 'reference',
+            _ref: featuredImageAsset._id,
+          },
+          alt: post.title,
+        }
       : null;
 
     const contentHtml = stripOuterCdata(post.content || '');
     const body = await htmlToPortableText(contentHtml, post.title, {dryRun});
-    const excerpt = createExcerpt(post.excerpt || htmlToPlainText(contentHtml));
+    const excerptSource = post.excerpt || htmlToPlainText(contentHtml);
+    const excerpt = createExcerpt(stripHtml(excerptSource));
     const category = inferCategory(post.title, contentHtml);
     const metaTitle = createMetaTitle(post.title);
     const metaDescription = createMetaDescription(excerpt);
     const slug = deriveSlug(post);
+    const docId = `post-${slug}`;
 
     const doc = {
-      _id: `post.${slug}`,
+      _id: docId,
       _type: 'post',
       title: post.title,
       slug: {current: slug},
@@ -110,14 +127,21 @@ async function main() {
     };
 
     if (dryRun) {
-      console.log(`DRY RUN: would import ${slug}`);
+      console.log(`DRY RUN: would import ${docId}`);
       imported += 1;
       continue;
     }
 
     await client.createOrReplace(doc);
     imported += 1;
-    console.log(`Imported ${imported}/${posts.length}: ${slug}`);
+    console.log(`Imported ${imported}/${posts.length}: ${docId}`);
+  }
+
+  if (!dryRun && legacyDocs.length) {
+    for (const legacy of legacyDocs) {
+      await client.delete(legacy._id);
+      console.log(`Deleted legacy ${legacy._id}`);
+    }
   }
 
   console.log(dryRun ? `Dry run complete for ${imported} posts.` : `Imported ${imported} posts.`);
@@ -263,6 +287,13 @@ function createExcerpt(value) {
   if (!plain) return 'Local real estate notes from Wayne NJ and Packanack Lake.';
   if (plain.length <= 220) return plain;
   return `${plain.slice(0, 217).trimEnd()}...`;
+}
+
+function stripHtml(value) {
+  return String(value || '')
+    .replace(/<br\s*\/?>/gi, ' ')
+    .replace(/<\/(p|h1|h2|h3|h4|li|blockquote)>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ');
 }
 
 function createMetaTitle(title) {

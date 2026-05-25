@@ -5,7 +5,10 @@ export const siteConfig = {
   url: 'https://www.waynenjrealestate.com',
   defaultTitle: 'Starlet Ferguson | Wayne NJ Real Estate',
   defaultDescription: 'Wayne, Packanack Lake, and surrounding neighborhood real estate with Starlet Ferguson.',
-  defaultImage: '/hero.jpg',
+  // defaultImage used for open graph / social previews. Updated to og-image.png in /public
+  // Place your preferred social preview image at /public/og-image.png
+  // Should be ~1200x630 or 1600x900 for best results.
+  defaultImage: '/og-image.png',
   contact: {
     email: 'starletferguson@gmail.com',
     cell: '(862) 226-9281',
@@ -45,6 +48,7 @@ export const siteRoutes = [
   '/buy',
   '/sell',
   '/home-value',
+  '/consult',
   '/packanack-lake',
   '/wayne-nj',
   '/blog',

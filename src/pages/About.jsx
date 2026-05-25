@@ -89,7 +89,7 @@ export default function About() {
                   </p>
                 </div>
 
-                <Button to="/contact" variant="primary" className={styles.heroButton}>
+                <Button to="/consult" variant="primary" className={styles.heroButton}>
                   Schedule a Consultation
                 </Button>
               </div>
