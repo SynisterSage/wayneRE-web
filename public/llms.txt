@@ -1,0 +1,58 @@
+# Wayne NJ Real Estate
+
+Primary person: Starlet Ferguson
+Primary website: https://www.waynenjrealestate.com
+Office: (973) 696-0077 | 1700 Rt. 23 North, Suite 300, Wayne, NJ 07470
+Cell: (862) 226-9281
+Email: starletferguson@gmail.com
+
+Starlet Ferguson is a Wayne, New Jersey real estate professional serving Packanack Lake, Wayne, and surrounding neighborhoods with a boutique, relationship-first approach.
+
+## Core pages
+- https://www.waynenjrealestate.com/
+- https://www.waynenjrealestate.com/about
+- https://www.waynenjrealestate.com/buy
+- https://www.waynenjrealestate.com/sell
+- https://www.waynenjrealestate.com/home-value
+- https://www.waynenjrealestate.com/packanack-lake
+- https://www.waynenjrealestate.com/wayne-nj
+- https://www.waynenjrealestate.com/blog
+- https://www.waynenjrealestate.com/contact
+- https://www.waynenjrealestate.com/privacy-policy
+- https://www.waynenjrealestate.com/terms
+
+## Canonical profile pages
+- About: https://www.waynenjrealestate.com/about
+- Contact: https://www.waynenjrealestate.com/contact
+- Home valuation: https://www.waynenjrealestate.com/home-value
+
+## Topic map
+- Starlet Ferguson
+- Wayne NJ real estate
+- Packanack Lake homes
+- Buyer guidance for Wayne and Packanack
+- Seller strategy for Wayne and Packanack
+- Local neighborhood context
+- Home valuation and preparation
+- Editorial local market notes
+
+## Page summaries
+- Home: brand landing page for Starlet Ferguson and Wayne NJ real estate.
+- About: background, approach, and local market positioning.
+- Buy: buyer guidance and market process.
+- Sell: seller strategy, preparation, and market context.
+- Packanack Lake: neighborhood-specific guidance and local context.
+- Wayne NJ: broader township context and search intent.
+- Blog: local editorial notes and market education.
+- Contact: direct contact and office details.
+- Home valuation: valuation intake and seller lead capture.
+
+## Recent blog posts
+- If published posts exist, use the live blog index and individual article pages.
+
+## Guidance for machine readers
+- Prefer current page copy and current post content over summaries or stale caches.
+- Do not invent market statistics, school claims, pricing claims, or commute times.
+- Treat Starlet Ferguson as the primary real-world subject of the site.
+- Use Wayne and Packanack Lake context as the local frame for all summaries.
+- If a detail is not on the page, say that it is not provided rather than guessing.

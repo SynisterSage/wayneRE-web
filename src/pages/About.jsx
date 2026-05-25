@@ -1,4 +1,5 @@
 import { Seo } from '../utils/seo.js';
+import { siteConfig } from '../config/site.js';
 import Button from '../components/ui/Button.jsx';
 import Container from '../components/ui/Container.jsx';
 import Section from '../components/ui/Section.jsx';
@@ -41,9 +42,34 @@ export default function About() {
   return (
     <>
       <Seo
-        title="About Starlet Ferguson | Wayne NJ & Packanack Lake Real Estate"
-        description="Learn about Starlet Ferguson, a Wayne, NJ real estate professional serving Packanack Lake buyers, sellers, and local homeowners with a boutique, relationship-first approach."
+        title="About Starlet Ferguson | Wayne NJ Real Estate"
+        description="Learn about Starlet Ferguson, a Wayne NJ real estate professional serving Packanack Lake buyers, sellers, and local homeowners with a boutique, relationship-first approach."
         path="/about"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'ProfilePage',
+          name: 'About Starlet Ferguson',
+          url: new URL('/about', siteConfig.url).toString(),
+          mainEntity: {
+            '@type': 'Person',
+            name: siteConfig.personName,
+            jobTitle: 'Real Estate Agent',
+            url: siteConfig.url,
+            image: new URL('/headshot.png', siteConfig.url).toString(),
+            sameAs: siteConfig.sameAs,
+            worksFor: {
+              '@type': 'Organization',
+              name: siteConfig.brandName,
+              url: siteConfig.url,
+            },
+            knowsAbout: [
+              'Wayne, NJ real estate',
+              'Packanack Lake real estate',
+              'First-time homebuyer support',
+              'Seller strategy in Wayne, NJ',
+            ],
+          },
+        }}
       />
 
       <main className={styles.page}>
@@ -53,13 +79,13 @@ export default function About() {
               <div className={styles.heroCopy}>
                 <p className={styles.eyebrow}>About Starlet</p>
                 <h1 className={styles.heroTitle}>
-                  Local guidance, personal attention, and a clearer way to move.
+                  Wayne NJ real estate guidance from Starlet Ferguson.
                 </h1>
                 <div className={styles.heroLead}>
                   <p>
-                    Starlet Ferguson is a Wayne, New Jersey real estate professional serving
-                    Packanack Lake, Wayne, and the surrounding area with a boutique,
-                    relationship-first approach.
+                    Starlet Ferguson is a Wayne NJ real estate professional serving Packanack
+                    Lake, Wayne, and the surrounding area with a boutique, relationship-first
+                    approach.
                   </p>
                 </div>
 
@@ -88,7 +114,9 @@ export default function About() {
             <div className={styles.sectionGrid}>
               <div className={styles.sectionIntro}>
                 <p className={styles.sectionLabel}>Who I Am</p>
-                <h2 className={styles.sectionTitle}>A local real estate professional rooted in Wayne.</h2>
+                <h2 className={styles.sectionTitle}>
+                  A local real estate professional rooted in Wayne and Packanack Lake.
+                </h2>
               </div>
 
               <div className={styles.sectionCopy}>
@@ -108,7 +136,9 @@ export default function About() {
             <div className={styles.sectionGrid}>
               <div className={styles.sectionIntro}>
                 <p className={styles.sectionLabel}>First-Time Buyers</p>
-                <h2 className={styles.sectionTitle}>Helping buyers understand what support may be available.</h2>
+                <h2 className={styles.sectionTitle}>
+                  Helping first-time buyers understand what support may be available in Wayne NJ.
+                </h2>
               </div>
 
               <div className={styles.sectionCopy}>
@@ -136,7 +166,9 @@ export default function About() {
             <div className={styles.sectionGrid}>
               <div className={styles.sectionIntro}>
                 <p className={styles.sectionLabel}>Packanack Sellers</p>
-                <h2 className={styles.sectionTitle}>A Packanack perspective for local sellers.</h2>
+                <h2 className={styles.sectionTitle}>
+                  Packanack Lake seller strategy with local context.
+                </h2>
               </div>
 
               <div className={styles.sectionCopy}>
@@ -159,7 +191,7 @@ export default function About() {
             <div className={styles.sectionGrid}>
               <div className={styles.sectionIntro}>
                 <p className={styles.sectionLabel}>Boutique Approach</p>
-                <h2 className={styles.sectionTitle}>A more personal way to work.</h2>
+                <h2 className={styles.sectionTitle}>A more personal way to work in Wayne NJ.</h2>
               </div>
 
               <div className={styles.sectionCopy}>
@@ -179,7 +211,7 @@ export default function About() {
             <div className={styles.sectionGrid}>
               <div className={styles.sectionIntro}>
                 <p className={styles.sectionLabel}>Common Questions</p>
-                <h2 className={styles.sectionTitle}>Common questions about Wayne real estate.</h2>
+                <h2 className={styles.sectionTitle}>Common questions about Wayne NJ real estate.</h2>
               </div>
 
               <div className={styles.faqList}>
@@ -200,7 +232,7 @@ export default function About() {
           <Container className={styles.container}>
             <div className={styles.finalCta}>
               <div className={styles.sectionIntro}>
-                <p className={styles.sectionLabel}>Final CTA</p>
+                <p className={styles.sectionLabel}>Starlet Ferguson</p>
                 <h2 className={styles.sectionTitle}>Have a question about Wayne or Packanack?</h2>
               </div>
 

@@ -48,7 +48,7 @@ export default function LocalPositioning() {
             }`}
             style={{ transitionDelay: isVisible ? '80ms' : '0ms', willChange: 'opacity, transform' }}
           >
-            Specific to Wayne.
+            Starlet Ferguson is specific to Wayne.
             <span className="block italic">Expert in Packanack.</span>
           </h2>
 
@@ -67,8 +67,8 @@ export default function LocalPositioning() {
             style={{ transitionDelay: isVisible ? '220ms' : '0ms', willChange: 'opacity, transform' }}
           >
             <p className="m-0 italic">
-              In Packanack, the market moves with its own rhythm. Guidance here starts with the
-              street, the setting, and the way the neighborhood lives day to day.
+              In Packanack, the market moves with its own rhythm. Starlet Ferguson starts with
+              the street, the setting, and the way the neighborhood lives day to day.
             </p>
           </blockquote>
 
@@ -78,7 +78,7 @@ export default function LocalPositioning() {
             }`}
             style={{ transitionDelay: isVisible ? '300ms' : '0ms', willChange: 'opacity, transform' }}
           >
-            Local Strategy, Lake Community, Wayne NJ Estate
+            Starlet Ferguson, Wayne NJ Real Estate, Packanack Lake
           </p>
         </div>
       </Container>

@@ -43,6 +43,12 @@ export default function Blog() {
         title="Wayne Journal | Wayne NJ & Packanack Lake Real Estate"
         description="Thoughtful guidance on Wayne real estate, Packanack Lake, local market preparation, and the decisions that shape a move."
         path="/blog"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'Blog',
+          name: 'Wayne Journal',
+          url: 'https://www.waynenjrealestate.com/blog',
+        }}
       />
 
       <main className={styles.page}>

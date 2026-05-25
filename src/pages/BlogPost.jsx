@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import {Link, useParams} from 'react-router-dom';
 import {Seo} from '../utils/seo.js';
+import {siteConfig} from '../config/site.js';
 import Container from '../components/ui/Container.jsx';
 import Section from '../components/ui/Section.jsx';
 import PortableContent from '../components/blog/PortableContent.jsx';
@@ -111,6 +112,28 @@ export default function BlogPost() {
   const metaDescription = post.metaDescription || post.excerpt;
   const featuredImage = post.featuredImage ? urlFor(post.featuredImage).width(1600).quality(82).url() : null;
   const imageAlt = post.featuredImage?.alt || post.title;
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: metaTitle,
+    description: metaDescription,
+    datePublished: post.publishedAt || undefined,
+    dateModified: post._updatedAt || post.publishedAt || undefined,
+    mainEntityOfPage: new URL(`/blog/${post.slug}`, siteConfig.url).toString(),
+    image: featuredImage || undefined,
+    author: {
+      '@type': 'Person',
+      name: 'Starlet Ferguson',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: siteConfig.brandName,
+      logo: {
+        '@type': 'ImageObject',
+        url: new URL('/logomark.svg', siteConfig.url).toString(),
+      },
+    },
+  };
 
   return (
     <>
@@ -121,6 +144,7 @@ export default function BlogPost() {
         image={featuredImage || undefined}
         imageAlt={imageAlt}
         type="article"
+        schema={articleSchema}
       />
 
       <main className={styles.page}>

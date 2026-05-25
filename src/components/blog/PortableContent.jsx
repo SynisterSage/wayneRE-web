@@ -1,4 +1,5 @@
 import {PortableText} from '@portabletext/react';
+import {urlFor} from '../../sanity/image.js';
 
 const components = {
   block: {
@@ -6,6 +7,15 @@ const components = {
     h2: ({children}) => <h2>{children}</h2>,
     h3: ({children}) => <h3>{children}</h3>,
     blockquote: ({children}) => <blockquote>{children}</blockquote>,
+  },
+  types: {
+    image: ({value}) => {
+      const image = urlFor(value)?.width(1600).quality(80).auto('format').url();
+
+      if (!image) return null;
+
+      return <img src={image} alt={value?.alt || ''} loading="lazy" />;
+    },
   },
   list: {
     bullet: ({children}) => <ul>{children}</ul>,

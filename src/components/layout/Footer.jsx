@@ -125,7 +125,7 @@ export default function Footer() {
       <Container className="py-10 sm:py-12 lg:py-14">
         <div className="grid gap-10 md:grid-cols-2 md:gap-10 lg:grid-cols-[1.05fr_0.9fr_0.95fr] lg:items-start lg:gap-12">
           <div className="max-w-sm">
-            <div className="flex items-start gap-2.5 sm:gap-3.5">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-4">
               <Link to="/" className="inline-flex no-underline">
                 <img
                   src="/headshot.png"
@@ -136,19 +136,65 @@ export default function Footer() {
                 />
               </Link>
 
-              <div className="flex flex-wrap gap-1.5 pt-0.5 sm:gap-2">
-                {socialLinks.map((link) => (
-                  <a
-                    key={`${link.label}-${link.href}`}
-                    href={link.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={link.label}
-                    className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-stone-200 bg-brand-cream text-stone-600 no-underline transition-colors duration-200 hover:border-brand-lake hover:text-brand-lake sm:h-8 sm:w-8"
-                  >
-                    <SocialMark kind={link.kind} />
-                  </a>
-                ))}
+              <div className="flex min-w-0 flex-1 flex-col gap-3">
+                <address className="not-italic text-[0.88rem] leading-[1.7] text-stone-500 sm:text-[0.94rem]">
+                  <p className="m-0">
+                    <span className="block text-[0.62rem] font-bold uppercase tracking-[0.28em] text-brand-lake">
+                      Email
+                    </span>
+                    <a
+                      href="mailto:starletferguson@gmail.com"
+                      className="text-stone-900 no-underline transition-opacity duration-200 hover:opacity-70"
+                    >
+                      starletferguson@gmail.com
+                    </a>
+                  </p>
+                  <p className="m-0 mt-3">
+                    <span className="block text-[0.62rem] font-bold uppercase tracking-[0.28em] text-brand-lake">
+                      Cell
+                    </span>
+                    <a
+                      href="tel:+18622269281"
+                      className="text-stone-900 no-underline transition-opacity duration-200 hover:opacity-70"
+                    >
+                      (862) 226-9281
+                    </a>
+                  </p>
+                  <p className="m-0 mt-3">
+                    <span className="block text-[0.62rem] font-bold uppercase tracking-[0.28em] text-brand-lake">
+                      Office
+                    </span>
+                    <a
+                      href="tel:+19736960077"
+                      className="text-stone-900 no-underline transition-opacity duration-200 hover:opacity-70"
+                    >
+                      (973) 696-0077
+                    </a>
+                  </p>
+                  <p className="m-0 mt-3">
+                    <span className="block text-[0.62rem] font-bold uppercase tracking-[0.28em] text-brand-lake">
+                      Office Address
+                    </span>
+                    1700 Rt. 23 North, Suite 300
+                    <br />
+                    Wayne, NJ 07470
+                  </p>
+                </address>
+
+                <div className="flex flex-nowrap gap-1 sm:gap-1.5">
+                  {socialLinks.map((link) => (
+                    <a
+                      key={`${link.label}-${link.href}`}
+                      href={link.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={link.label}
+                      className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-stone-200 bg-brand-cream text-stone-600 no-underline transition-colors duration-200 hover:border-brand-lake hover:text-brand-lake sm:h-7 sm:w-7"
+                    >
+                      <SocialMark kind={link.kind} />
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
 

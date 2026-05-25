@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/generate-seo-assets.mjs",
     "build": "tsc -b && vite build",
+    "generate:seo": "node scripts/generate-seo-assets.mjs",
+    "import:blog": "node scripts/import-squarespace-blog.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },

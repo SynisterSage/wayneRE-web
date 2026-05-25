@@ -177,7 +177,7 @@ export default function HomeValue() {
                         type="tel"
                         name="phone"
                         autoComplete="tel"
-                        placeholder="(973) 555-0123"
+                        placeholder="(862) 226-9281"
                         value={form.phone}
                         onChange={handleChange}
                       />

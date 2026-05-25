@@ -9,7 +9,7 @@ export default function Hero() {
       <Container className={styles.inner}>
         <header className={styles.content}>
           <p className={styles.eyebrow}>
-            Wayne &amp; Packanack Lake
+            Starlet Ferguson | Wayne &amp; Packanack Lake
           </p>
 
           <h1
@@ -24,8 +24,8 @@ export default function Hero() {
           </h1>
 
           <p className={styles.description}>
-            Strategic guidance and neighborhood expertise for homeowners and future neighbors in
-            Wayne, New Jersey.
+            Starlet Ferguson provides strategic guidance and neighborhood expertise for
+            homeowners and future neighbors in Wayne, New Jersey and Packanack Lake.
           </p>
 
           <div className={styles.actions}>

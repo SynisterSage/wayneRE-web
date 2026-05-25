@@ -49,6 +49,21 @@ export const postType = defineType({
       validation: (rule) => rule.required().min(80).max(220),
     }),
     defineField({
+      name: 'metaTitle',
+      title: 'Meta Title',
+      type: 'string',
+      description: 'Optional SEO title for the blog post.',
+      validation: (rule) => rule.max(70),
+    }),
+    defineField({
+      name: 'metaDescription',
+      title: 'Meta Description',
+      type: 'text',
+      rows: 3,
+      description: 'Optional SEO description for search engines and social previews.',
+      validation: (rule) => rule.max(170),
+    }),
+    defineField({
       name: 'image',
       title: 'Hero Image',
       type: 'image',
@@ -68,6 +83,18 @@ export const postType = defineType({
       type: 'array',
       of: [
         {type: 'block'},
+        {
+          type: 'image',
+          options: {hotspot: true},
+          fields: [
+            defineField({
+              name: 'alt',
+              title: 'Alt Text',
+              type: 'string',
+              validation: (rule) => rule.required(),
+            }),
+          ],
+        },
       ],
       validation: (rule) => rule.required(),
     }),

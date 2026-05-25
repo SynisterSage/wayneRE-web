@@ -6,7 +6,7 @@ const pathways = [
   {
     title: "The Seller's Strategy",
     description:
-      'Preparation is our greatest competitive advantage. We help you curate and position your home for a careful market transition.',
+      'Preparation is our greatest competitive advantage. Starlet Ferguson helps you curate and position your home for a careful market transition.',
     href: '/sell',
     cta: 'Explore Selling Strategy',
     imageAlt: 'A modern interior with glass walls and a quiet hallway',
@@ -15,7 +15,7 @@ const pathways = [
   {
     title: "Buying in Wayne",
     description:
-      "Finding your place in Wayne requires more than a search. We offer a local's guide to neighborhoods, schools, and lake culture.",
+      "Finding your place in Wayne requires more than a search. Starlet Ferguson offers a local's guide to neighborhoods, schools, and lake culture.",
     href: '/buy',
     cta: 'Learn About Buying in Wayne',
     imageAlt: 'A contemporary exterior with a pool and landscaped outdoor space',

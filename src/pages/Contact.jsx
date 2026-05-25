@@ -8,7 +8,7 @@ export default function Contact() {
   return (
     <>
       <Seo
-        title="Contact | Wayne NJ & Packanack Lake Real Estate"
+        title="Contact Starlet Ferguson | Wayne NJ Real Estate"
         description="Contact Starlet Ferguson for buyer guidance, seller planning, and local real estate insight in Wayne, NJ and Packanack Lake."
         path="/contact"
       />
@@ -34,15 +34,23 @@ export default function Contact() {
                     <address className={styles.contactDetails}>
                       <p>
                         <span>Email</span>
-                        <a href="mailto:hello@waynenjrealestate.com">hello@waynenjrealestate.com</a>
+                        <a href="mailto:starletferguson@gmail.com">starletferguson@gmail.com</a>
                       </p>
                       <p>
-                        <span>Phone</span>
-                        <a href="tel:+19735550123">(973) 555-0123</a>
+                        <span>Cell</span>
+                        <a href="tel:+18622269281">(862) 226-9281</a>
                       </p>
                       <p>
-                        <span>Location</span>
-                        <span>Wayne, New Jersey</span>
+                        <span>Office</span>
+                        <a href="tel:+19736960077">(973) 696-0077</a>
+                      </p>
+                      <p>
+                        <span>Office Address</span>
+                        <span>
+                          1700 Rt. 23 North, Suite 300
+                          <br />
+                          Wayne, NJ 07470
+                        </span>
                       </p>
                     </address>
                   </div>

@@ -1,0 +1,45 @@
+# Wayne NJ Real Estate - Full Reference
+
+This file is a fuller machine-readable reference for Starlet Ferguson and the site content.
+
+## Identity
+- Person: Starlet Ferguson
+- Brand: Wayne NJ Real Estate
+- Website: https://www.waynenjrealestate.com
+- Office: (973) 696-0077
+- Office address: 1700 Rt. 23 North, Suite 300, Wayne, NJ 07470
+- Cell: (862) 226-9281
+- Email: starletferguson@gmail.com
+
+## Audience and intent
+The site targets buyers, sellers, and homeowners in Wayne, Packanack Lake, and nearby North Jersey neighborhoods. The positioning is boutique, calm, local, editorial, and relationship-first.
+
+## Content pillars
+- Buyer education
+- Seller strategy
+- Packanack Lake neighborhood context
+- Wayne NJ market guidance
+- Home valuation and preparation
+- Local market notes
+
+## Important pages
+- https://www.waynenjrealestate.com/
+- https://www.waynenjrealestate.com/about
+- https://www.waynenjrealestate.com/buy
+- https://www.waynenjrealestate.com/sell
+- https://www.waynenjrealestate.com/home-value
+- https://www.waynenjrealestate.com/packanack-lake
+- https://www.waynenjrealestate.com/wayne-nj
+- https://www.waynenjrealestate.com/blog
+- https://www.waynenjrealestate.com/contact
+- https://www.waynenjrealestate.com/privacy-policy
+- https://www.waynenjrealestate.com/terms
+
+## Live posts
+- If published posts exist, use the live blog index and individual article pages.
+
+## Machine reading guidance
+- Use current content from the live page or post before using summaries.
+- Do not fabricate pricing, school information, or market performance.
+- Preserve the local framing around Wayne, Packanack Lake, and surrounding neighborhoods.
+- Starlet Ferguson is the central person and subject for searches and summaries.

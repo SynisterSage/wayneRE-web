@@ -4,8 +4,12 @@ import Container from '../../ui/Container.jsx';
 
 const contactDetails = [
   { label: 'Email', value: 'starletferguson@gmail.com' },
-  { label: 'Phone', value: '(973) 555-0123' },
-  { label: 'Address', value: 'Wayne, New Jersey 07470' },
+  { label: 'Cell', value: '(862) 226-9281' },
+  { label: 'Office', value: '(973) 696-0077' },
+  {
+    label: 'Address',
+    value: ['1700 Rt. 23 North, Suite 300', 'Wayne, NJ 07470'],
+  },
 ];
 
 export default function FinalCTA() {
@@ -26,11 +30,25 @@ export default function FinalCTA() {
 
             <dl className="mt-10 space-y-4">
               {contactDetails.map((item) => (
-                <div key={item.label} className="grid grid-cols-[5.5rem_minmax(0,1fr)] items-center gap-4">
+                <div
+                  key={item.label}
+                  className={`grid grid-cols-[7rem_minmax(0,1fr)] items-center gap-4 ${
+                    item.label === 'Office Address' ? 'pt-2' : ''
+                  }`}
+                >
                   <dt className="whitespace-nowrap text-[0.62rem] font-bold uppercase tracking-[0.28em] text-stone-500">
                     {item.label}
                   </dt>
-                  <dd className="text-[0.98rem] leading-[1.6] text-stone-800">{item.value}</dd>
+                  <dd className="text-[0.98rem] leading-[1.6] text-stone-800">
+                    {Array.isArray(item.value) ? (
+                      <span className="block">
+                        <span className="block">{item.value[0]}</span>
+                        <span className="block">{item.value[1]}</span>
+                      </span>
+                    ) : (
+                      item.value
+                    )}
+                  </dd>
                 </div>
               ))}
             </dl>
