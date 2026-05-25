@@ -19,7 +19,7 @@ export default function Testimonials() {
       typeof window !== 'undefined' &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (reducedMotion || testimonials.length < 2) {
+    if (testimonials.length < 2) {
       return undefined;
     }
 
@@ -38,6 +38,17 @@ export default function Testimonials() {
 
     const scheduleNext = () => {
       clearTimers();
+
+      if (reducedMotion) {
+        advanceTimerRef.current = window.setTimeout(() => {
+          if (disposed) return;
+
+          setActiveIndex((current) => (current + 1) % testimonials.length);
+          scheduleNext();
+        }, DISPLAY_DURATION);
+        return;
+      }
+
       advanceTimerRef.current = window.setTimeout(() => {
         if (disposed) return;
 
