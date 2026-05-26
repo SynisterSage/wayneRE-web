@@ -1,4 +1,51 @@
 User-agent: *
 Allow: /
 
+# Global rules: block internal/admin/api paths and common tracking query params
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /draft/
+Disallow: /tmp/
+Disallow: /*?*utm_*
+Disallow: /*?*ref=*
+Crawl-delay: 5
+
+User-agent: Googlebot
+Allow: /
+Disallow: /private/
+Crawl-delay: 2
+
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 5
+
+User-agent: CCBot
+Disallow: /private/
+
+# Explicit allowances for LLM crawlers to access LLMS files and sitemap
+User-agent: GPTBot
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /sitemap.xml
+Allow: /routes.json
+Allow: /
+Crawl-delay: 10
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Host: www.waynenjrealestate.com
 Sitemap: https://www.waynenjrealestate.com/sitemap.xml
+
+# Small ASCII header
+# Wayne NJ Real Estate robots policy - tuned for local & LLM indexing
