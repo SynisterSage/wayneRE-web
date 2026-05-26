@@ -3,13 +3,13 @@
   left: 50%;
   bottom: 14px;
   transform: translateX(-50%);
-  max-width: 460px;
-  width: min(96%, 460px);
+  max-width: 620px;
+  width: min(96%, 620px);
   background: var(--color-brand-cream);
   color: var(--color-text);
   border: 1px solid var(--color-border);
-  padding: 14px 14px 12px;
-  border-radius: 14px;
+  padding: 10px 14px;
+  border-radius: 22px;
   z-index: 1200;
   font-family: var(--font-sans);
   box-shadow: 0 10px 24px rgba(44, 42, 38, 0.06);
@@ -17,19 +17,20 @@
 
 .cookie-consent__content {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex-direction: row;
+  gap: 14px;
   align-items: center;
+  justify-content: space-between;
 }
 
 .cookie-consent__text {
   margin: 0;
-  max-width: 22rem;
-  font-size: 0.84rem;
-  line-height: 1.5;
+  max-width: 28rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
   color: var(--color-text-muted);
   flex: 1 1 auto;
-  text-align: center;
+  text-align: left;
 }
 
 .cookie-consent__actions {
@@ -40,10 +41,17 @@
   flex-shrink: 0;
 }
 
+.cookie-consent__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
 .cookie-consent__btn {
   border-radius: 999px;
   padding: 7px 12px;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   line-height: 1;
   font-weight: 600;
   border: 1px solid transparent;
@@ -68,24 +76,30 @@
 }
 
 .cookie-consent__policy {
-  margin-top: 2px;
-  text-align: center;
-  font-size: 0.76rem;
+  margin-top: 0;
+  text-align: left;
+  font-size: 0.74rem;
 }
 
 .cookie-consent__link {
   color: var(--color-text);
   text-decoration: underline;
+  font-size: 0.7rem;
+  line-height: 1.2;
+  white-space: normal;
+  text-align: center;
+  display: inline-block;
+  max-width: 100%;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .cookie-consent {
     left: 50%;
     transform: translateX(-50%);
     width: calc(100% - 22px);
     max-width: none;
-    padding: 12px;
-    border-radius: 12px;
+    padding: 12px 14px;
+    border-radius: 18px;
   }
 
   .cookie-consent__content {
@@ -97,11 +111,20 @@
   .cookie-consent__text {
     max-width: none;
     font-size: 0.82rem;
+    text-align: center;
   }
 
   .cookie-consent__actions {
     width: 100%;
     justify-content: center;
+  }
+
+  .cookie-consent__meta {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 8px;
   }
 
   .cookie-consent__btn {
@@ -110,5 +133,10 @@
 
   .cookie-consent__policy {
     text-align: center;
+    width: 100%;
+  }
+
+  .cookie-consent__link {
+    font-size: 0.68rem;
   }
 }

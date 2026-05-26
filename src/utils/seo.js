@@ -77,6 +77,23 @@ export function Seo({
         'query-input': 'required name=search_term_string',
       },
     },
+    // Explicit LocalBusiness schema to help local SEO and Maps indexing
+    {
+      '@context': 'https://schema.org',
+      '@type': 'LocalBusiness',
+      name: siteConfig.brandName,
+      url: siteConfig.url,
+      telephone: siteConfig.localBusiness.telephone,
+      email: siteConfig.localBusiness.email,
+      address: {
+        '@type': 'PostalAddress',
+        ...siteConfig.localBusiness.address,
+      },
+      priceRange: siteConfig.localBusiness.priceRange || undefined,
+      image: new URL('/headshot.png', siteConfig.url).toString(),
+      openingHours: siteConfig.localBusiness.openingHours || undefined,
+      sameAs: siteConfig.sameAs,
+    },
   ];
   const schemaItems = Array.isArray(schema) ? schema : schema ? [schema] : [];
   const scripts = [...structuredData, ...schemaItems];

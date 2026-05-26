@@ -46,22 +46,22 @@ export default function CookieConsent() {
           experience. No personal information is sold.
         </p>
 
-        <div className="cookie-consent__actions">
-          <button
-            className="cookie-consent__btn cookie-consent__btn--primary"
-            onClick={() => saveChoice('accepted')}
-          >
-            Accept
-          </button>
-          <button
-            className="cookie-consent__btn cookie-consent__btn--secondary"
-            onClick={() => saveChoice('declined')}
-          >
-            Decline
-          </button>
-        </div>
+        <div className="cookie-consent__meta">
+          <div className="cookie-consent__actions">
+            <button
+              className="cookie-consent__btn cookie-consent__btn--primary"
+              onClick={() => saveChoice('accepted')}
+            >
+              Accept
+            </button>
+            <button
+              className="cookie-consent__btn cookie-consent__btn--secondary"
+              onClick={() => saveChoice('declined')}
+            >
+              Decline
+            </button>
+          </div>
 
-        <div className="cookie-consent__policy">
           <Link to="/privacy-policy" className="cookie-consent__link">
             Privacy Policy
           </Link>
