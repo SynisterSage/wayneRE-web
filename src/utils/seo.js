@@ -12,7 +12,13 @@ export function Seo({
   type = 'website',
   schema,
 }) {
-  const fullTitle = title ? `${title} | ${siteConfig.brandName}` : siteConfig.defaultTitle;
+  // Avoid duplicating the brand name if the provided title already contains it
+  let fullTitle;
+  if (title) {
+    fullTitle = title.includes(siteConfig.brandName) ? title : `${title} | ${siteConfig.brandName}`;
+  } else {
+    fullTitle = siteConfig.defaultTitle;
+  }
   const canonical = new URL(path, siteConfig.url).toString();
   const robotsContent = noIndex
     ? 'noindex, nofollow'

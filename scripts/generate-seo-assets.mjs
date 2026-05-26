@@ -202,7 +202,23 @@ async function main() {
 
   await mkdir(publicDir, { recursive: true });
   await writeFile(resolve(publicDir, 'sitemap.xml'), sitemapXml, 'utf8');
-  await writeFile(resolve(publicDir, 'robots.txt'), robotsTxt, 'utf8');
+
+  // Only write robots.txt if one doesn't already exist. This avoids overwriting
+  // a custom robots.txt maintained in the repo or edited by hand.
+  try {
+    const existingRobots = await readFile(resolve(publicDir, 'robots.txt'), 'utf8');
+    if (!existingRobots || !existingRobots.trim()) {
+      await writeFile(resolve(publicDir, 'robots.txt'), robotsTxt, 'utf8');
+      console.log('[seo] Wrote robots.txt (no existing file).');
+    } else {
+      console.log('[seo] Skipping robots.txt generation — file already exists.');
+    }
+  } catch (err) {
+    // If the file doesn't exist, write it.
+    await writeFile(resolve(publicDir, 'robots.txt'), robotsTxt, 'utf8');
+    console.log('[seo] Wrote robots.txt (created new).');
+  }
+
   await writeFile(resolve(publicDir, 'llms.txt'), llmsTxt, 'utf8');
   await writeFile(resolve(publicDir, 'llms-full.txt'), llmsFullTxt, 'utf8');
 }
