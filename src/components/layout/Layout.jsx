@@ -9,8 +9,32 @@ export default function Layout() {
   const location = useLocation();
 
   useEffect(() => {
+    if (location.hash) {
+      const targetId = decodeURIComponent(location.hash.slice(1));
+      let attempts = 0;
+      const maxAttempts = 60;
+
+      const tryScroll = () => {
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          return true;
+        }
+
+        attempts += 1;
+        if (attempts < maxAttempts) {
+          window.setTimeout(tryScroll, 50);
+        }
+
+        return false;
+      };
+
+      window.requestAnimationFrame(tryScroll);
+      return undefined;
+    }
+
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-  }, [location.pathname]);
+  }, [location.hash, location.pathname]);
 
   useEffect(() => {
     // Analytics tracking is handled by AnalyticsTracker (checks consent and tracks)
