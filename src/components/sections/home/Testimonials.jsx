@@ -78,7 +78,12 @@ export default function Testimonials() {
   const activeTestimonial = testimonials[activeIndex];
 
   return (
-    <section id="testimonials" ref={sectionRef} className="bg-brand-cream">
+    <section
+      id="testimonials"
+      ref={sectionRef}
+      className="bg-brand-cream"
+      style={{ scrollMarginTop: '6rem' }}
+    >
       <Container className="py-16 sm:py-20 lg:py-32">
         <div
           className={`mx-auto max-w-4xl text-center transition-[opacity,transform] duration-700 ease-out motion-reduce:transition-none ${
