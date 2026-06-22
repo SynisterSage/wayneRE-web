@@ -20,10 +20,8 @@ export const siteConfig = {
   sameAs: [
     'https://www.tiktok.com/@starletf',
     'https://www.youtube.com/@starletsellsnj',
-    'https://www.instagram.com/xopackanack',
-    'https://www.facebook.com/people/XOPackanack/61578327235400/',
-    'https://www.instagram.com/starletsellsnj',
-    'https://www.facebook.com/starletsellsNJ/',
+    'https://www.instagram.com/xopackanack/',
+    'https://www.facebook.com/StarletFerguson.CertifiedYogaInstructor/',
     'https://www.linkedin.com/in/starlet-ferguson-75a41813a',
   ],
   localBusiness: {

@@ -21,10 +21,8 @@ const legalLinks = [
 const socialLinks = [
   { label: 'TikTok', href: 'https://www.tiktok.com/@starletf', kind: 'tiktok' },
   { label: 'YouTube', href: 'https://www.youtube.com/@starletsellsnj', kind: 'youtube' },
-  { label: 'Instagram', href: 'https://www.instagram.com/xopackanack', kind: 'instagram' },
-  { label: 'Facebook', href: 'https://www.facebook.com/people/XOPackanack/61578327235400/', kind: 'facebook' },
-  { label: 'Instagram', href: 'https://www.instagram.com/starletsellsnj', kind: 'instagram' },
-  { label: 'Facebook', href: 'https://www.facebook.com/starletsellsNJ/', kind: 'facebook' },
+  { label: 'XO Packanack', href: 'https://www.instagram.com/xopackanack/', kind: 'instagram' },
+  { label: 'Starlet Ferguson', href: 'https://www.facebook.com/StarletFerguson.CertifiedYogaInstructor/', kind: 'facebook' },
   { label: 'LinkedIn', href: 'http://www.linkedin.com/in/starlet-ferguson-75a41813a', kind: 'linkedin' },
 ];
 
