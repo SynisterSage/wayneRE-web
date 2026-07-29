@@ -40,7 +40,13 @@ export default function ListingDetail() {
         <Container className="py-10 sm:py-16 lg:py-24">
           <Link to="/listings" className="inline-flex min-h-10 items-center text-[0.68rem] font-bold tracking-[0.04em] text-brand-lake no-underline hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-lake">← All listings</Link>
           <div className="mt-6 grid gap-10 sm:mt-10 sm:gap-14 lg:grid-cols-[minmax(0,1.35fr)_minmax(19rem,0.65fr)] lg:gap-20">
-            <ListingGallery listing={listing} />
+            <div>
+              <ListingGallery listing={listing} />
+              <div className="mt-6 flex flex-wrap gap-4 sm:mt-8">
+                <Button to={`/contact?listingTitle=${encodeURIComponent(listing.title)}&address=${encodeURIComponent(listing.displayAddress || '')}`}>Ask about this home</Button>
+                {listing.mlsUrl ? <Button href={listing.mlsUrl} variant="secondary" target="_blank" rel="noreferrer" onClick={() => trackEvent('listing_mls_click', {listing_slug: listing.slug, listing_title: listing.title})}>View full MLS listing</Button> : null}
+              </div>
+            </div>
             <div className="self-start lg:sticky lg:top-8">
               <p className="text-[0.62rem] font-bold tracking-[0.04em] text-brand-lake">{listingStatusLabels[listing.status] || listing.status}</p>
               <h1 className="mt-4 font-serif text-[clamp(2.65rem,5vw,5rem)] font-medium leading-[0.98] tracking-[-0.04em] text-stone-900">{listing.title}</h1>
@@ -50,7 +56,6 @@ export default function ListingDetail() {
                 {facts.filter(([, value]) => value !== null && value !== undefined && value !== '').map(([label, value]) => <div key={label}><p className="text-[0.62rem] font-bold tracking-[0.04em] text-stone-500">{label}</p><p className="mt-1 text-[1rem] text-stone-900">{value}</p></div>)}
               </div>
               <p className="mt-6 text-[1rem] leading-[1.75] text-stone-700 sm:mt-8">{listing.summary}</p>
-              <div className="mt-7 grid gap-3 sm:flex sm:flex-wrap sm:gap-4"><Button to={`/contact?listingTitle=${encodeURIComponent(listing.title)}&address=${encodeURIComponent(listing.displayAddress || '')}`} className="w-full sm:w-auto">Ask about this home</Button>{listing.mlsUrl ? <Button href={listing.mlsUrl} variant="secondary" target="_blank" rel="noreferrer" onClick={() => trackEvent('listing_mls_click', {listing_slug: listing.slug, listing_title: listing.title})} className="w-full sm:w-auto">View full MLS listing</Button> : null}</div>
             </div>
           </div>
           <div className="mt-16 border-t border-stone-300 pt-10 sm:mt-24 sm:pt-14">
