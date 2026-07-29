@@ -1,4 +1,5 @@
 export const navLinks = [
+  { label: 'Listings', path: '/listings' },
   { label: 'About', path: '/about' },
   { label: 'Buy', path: '/buy' },
   { label: 'Sell', path: '/sell' },

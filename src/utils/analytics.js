@@ -39,6 +39,15 @@ export function trackPageView(path) {
   }
 }
 
+export function trackEvent(name, params = {}) {
+  if (!isGaLoaded()) return;
+  try {
+    window.gtag('event', name, params);
+  } catch {
+    // swallow errors — analytics should not break the app
+  }
+}
+
 export function hasTrackedPageView(path) {
   return trackedPageViews.has(path);
 }
@@ -50,6 +59,7 @@ export function markPageViewTracked(path) {
 export default {
   loadGoogleAnalytics,
   trackPageView,
+  trackEvent,
   hasTrackedPageView,
   markPageViewTracked,
 };

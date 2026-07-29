@@ -3,6 +3,7 @@ import { siteConfig } from '../config/site.js';
 import Hero from '../components/sections/home/Hero.jsx';
 import LocalPositioning from '../components/sections/home/LocalPositioning.jsx';
 import Pathways from '../components/sections/home/Pathways.jsx';
+import FeaturedListing from '../components/sections/home/FeaturedListing.jsx';
 import PackanackFeature from '../components/sections/home/PackanackFeature.jsx';
 import HomeValuationCTA from '../components/sections/home/HomeValuationCTA.jsx';
 import BlogPreview from '../components/sections/home/BlogPreview.jsx';
@@ -41,6 +42,7 @@ export default function Home() {
       <Hero />
       <LocalPositioning />
       <Pathways />
+      <FeaturedListing />
       <PackanackFeature />
       <HomeValuationCTA />
       <BlogPreview />

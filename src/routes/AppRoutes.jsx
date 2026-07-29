@@ -15,6 +15,8 @@ import PrivacyPolicy from '../pages/PrivacyPolicy.jsx';
 import TermsOfService from '../pages/TermsOfService.jsx';
 import NotFound from '../pages/NotFound.jsx';
 import Testimonials from '../pages/Testimonials.jsx';
+import Listings from '../pages/Listings.jsx';
+import ListingDetail from '../pages/ListingDetail.jsx';
 
 export default function AppRoutes() {
   return (
@@ -29,6 +31,8 @@ export default function AppRoutes() {
         <Route path="/wayne-nj" element={<WayneNJ />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="/listings" element={<Listings />} />
+        <Route path="/listings/:slug" element={<ListingDetail />} />
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/consult" element={<Consult />} />
         <Route path="/contact" element={<Contact />} />

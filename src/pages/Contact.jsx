@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Seo } from '../utils/seo.js';
 import Button from '../components/ui/Button.jsx';
 import Container from '../components/ui/Container.jsx';
@@ -14,8 +15,21 @@ const initialForm = {
   message: '',
 };
 
+function getListingContext(searchParams) {
+  const title = searchParams.get('listingTitle');
+  const address = searchParams.get('address');
+  if (!title) return null;
+  return {title, address};
+}
+
 export default function Contact() {
-  const [form, setForm] = useState(initialForm);
+  const [searchParams] = useSearchParams();
+  const [form, setForm] = useState(() => {
+    const listing = getListingContext(new URLSearchParams(window.location.search));
+    return listing
+      ? {...initialForm, message: `I’m interested in ${listing.title}${listing.address ? ` (${listing.address})` : ''}.`}
+      : initialForm;
+  });
   const [status, setStatus] = useState('idle');
   const [feedback, setFeedback] = useState('');
 
@@ -35,12 +49,14 @@ export default function Contact() {
     setFeedback('');
 
     const payload = new FormData();
-    payload.append('_subject', 'New Website Contact Message');
+    const listing = getListingContext(searchParams);
+    payload.append('_subject', listing ? `Listing inquiry: ${listing.title}` : 'New Website Contact Message');
     payload.append('_template', 'table');
     payload.append('_captcha', 'false');
     payload.append('Name', form.name);
     payload.append('Email', form.email);
     payload.append('Message', form.message);
+    if (listing) payload.append('Listing', `${listing.title}${listing.address ? ` — ${listing.address}` : ''}`);
 
     try {
       await submitFormSubmit(FORM_ENDPOINT, payload);
@@ -74,8 +90,9 @@ export default function Contact() {
                   <p className={styles.eyebrow}>Wayne &amp; Packanack Lake</p>
                   <h1 className={styles.title}>Contact Starlet</h1>
                   <p className={styles.lead}>
-                    Send a message if you are buying, selling, or just thinking through timing. A
-                    short note is enough.
+                    {getListingContext(searchParams)
+                      ? 'Send a note about this home and Starlet will follow up with the details.'
+                      : 'Send a message if you are buying, selling, or just thinking through timing. A short note is enough.'}
                   </p>
 
                   <address className={styles.contactDetails}>
