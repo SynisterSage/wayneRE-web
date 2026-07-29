@@ -9,7 +9,7 @@ export default function RoutePage({ title, description, path, eyebrow, children,
         <Container className="py-24 sm:py-28 lg:py-32">
           <div className="mx-auto max-w-3xl text-center">
             {eyebrow ? (
-              <p className="mb-6 text-[0.625rem] font-bold uppercase tracking-[0.3em] text-stone-700">
+              <p className="mb-6 text-[0.625rem] font-bold tracking-[0.04em] text-stone-700">
                 {eyebrow}
               </p>
             ) : null}

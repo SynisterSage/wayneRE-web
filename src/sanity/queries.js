@@ -52,16 +52,11 @@ export const listingFields = `
   bedrooms,
   bathrooms,
   squareFeet,
-  lotSize,
-  neighborhood,
   summary,
   description,
-  highlights,
   mlsUrl,
   featured,
   publishedAt,
-  metaTitle,
-  metaDescription,
   "heroImage": heroImage{alt, asset, crop, hotspot},
   "gallery": gallery[]{alt, asset, crop, hotspot}
 `;

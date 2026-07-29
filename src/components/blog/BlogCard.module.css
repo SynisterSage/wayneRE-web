@@ -29,9 +29,8 @@
   color: var(--color-stone-500);
   font-size: 0.66rem;
   font-weight: 700;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.04em;
   line-height: 1.4;
-  text-transform: uppercase;
 }
 
 .title {

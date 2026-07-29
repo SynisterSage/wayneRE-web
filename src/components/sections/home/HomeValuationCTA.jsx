@@ -22,7 +22,7 @@ export default function HomeValuationCTA() {
             }`}
             style={{ willChange: 'opacity, transform' }}
           >
-            <p className="text-[0.625rem] font-bold uppercase tracking-[0.35em] text-brand-lake">
+            <p className="text-[0.625rem] font-bold tracking-[0.04em] text-brand-lake">
               Home Valuation
             </p>
 

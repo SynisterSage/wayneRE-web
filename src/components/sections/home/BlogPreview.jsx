@@ -58,7 +58,7 @@ export default function BlogPreview() {
             }`}
             style={{willChange: 'opacity, transform'}}
           >
-            <p className="text-[0.625rem] font-bold uppercase tracking-[0.35em] text-brand-lake">
+            <p className="text-[0.625rem] font-bold tracking-[0.04em] text-brand-lake">
               Editorial
             </p>
             <h2
@@ -122,10 +122,10 @@ export default function BlogPreview() {
                   ) : null}
 
                   <div className="flex items-center justify-between gap-4">
-                    <p className="text-[0.62rem] font-bold uppercase tracking-[0.3em] text-stone-500">
+                    <p className="text-[0.62rem] font-bold tracking-[0.04em] text-stone-500">
                       {category}
                     </p>
-                    <p className="text-[0.62rem] uppercase tracking-[0.28em] text-stone-400">
+                    <p className="text-[0.62rem] tracking-[0.04em] text-stone-400">
                       {date}
                     </p>
                   </div>

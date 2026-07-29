@@ -86,7 +86,7 @@ export default function FinalCTA() {
                     item.label === 'Office Address' ? 'pt-2' : ''
                   }`}
                 >
-                  <dt className="whitespace-nowrap text-[0.62rem] font-bold uppercase tracking-[0.28em] text-stone-500">
+                  <dt className="whitespace-nowrap text-[0.62rem] font-bold tracking-[0.04em] text-stone-500">
                     {item.label}
                   </dt>
                   <dd className="text-[0.98rem] leading-[1.6] text-stone-800">
@@ -128,7 +128,7 @@ export default function FinalCTA() {
                 <input type="hidden" name="_captcha" value="false" />
                 <div className="grid gap-5 sm:grid-cols-2">
                   <label className="block">
-                    <span className="mb-2 block text-[0.7rem] font-bold uppercase tracking-[0.28em] text-stone-500">
+                    <span className="mb-2 block text-[0.7rem] font-bold tracking-[0.04em] text-stone-500">
                       Name
                     </span>
                     <input
@@ -142,7 +142,7 @@ export default function FinalCTA() {
                     />
                   </label>
                   <label className="block">
-                    <span className="mb-2 block text-[0.7rem] font-bold uppercase tracking-[0.28em] text-stone-500">
+                    <span className="mb-2 block text-[0.7rem] font-bold tracking-[0.04em] text-stone-500">
                       Email
                     </span>
                     <input
@@ -158,7 +158,7 @@ export default function FinalCTA() {
                 </div>
 
                 <label className="block">
-                  <span className="mb-2 block text-[0.7rem] font-bold uppercase tracking-[0.28em] text-stone-500">
+                  <span className="mb-2 block text-[0.7rem] font-bold tracking-[0.04em] text-stone-500">
                     Interest
                   </span>
                   <input
@@ -172,7 +172,7 @@ export default function FinalCTA() {
                 </label>
 
                 <label className="block">
-                  <span className="mb-2 block text-[0.7rem] font-bold uppercase tracking-[0.28em] text-stone-500">
+                  <span className="mb-2 block text-[0.7rem] font-bold tracking-[0.04em] text-stone-500">
                     Message
                   </span>
                   <textarea

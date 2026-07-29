@@ -113,7 +113,7 @@ function FooterLegalLink({ link }) {
   return (
     <Link
       to={link.path}
-      className="text-[0.62rem] font-bold uppercase tracking-[0.28em] text-stone-500 no-underline transition-opacity duration-200 hover:opacity-70"
+      className="text-[0.62rem] font-bold tracking-[0.04em] text-stone-500 no-underline transition-opacity duration-200 hover:opacity-70"
     >
       {link.label}
     </Link>
@@ -143,7 +143,7 @@ export default function Footer() {
               <div className="flex min-w-0 flex-1 flex-col gap-3">
                 <address className="not-italic text-[0.88rem] leading-[1.7] text-stone-500 sm:text-[0.94rem]">
                   <p className="m-0">
-                    <span className="block text-[0.62rem] font-bold uppercase tracking-[0.28em] text-brand-lake">
+                    <span className="block text-[0.62rem] font-bold tracking-[0.04em] text-brand-lake">
                       Email
                     </span>
                     <a
@@ -154,7 +154,7 @@ export default function Footer() {
                     </a>
                   </p>
                   <p className="m-0 mt-3">
-                    <span className="block text-[0.62rem] font-bold uppercase tracking-[0.28em] text-brand-lake">
+                    <span className="block text-[0.62rem] font-bold tracking-[0.04em] text-brand-lake">
                       Cell
                     </span>
                     <a
@@ -165,7 +165,7 @@ export default function Footer() {
                     </a>
                   </p>
                   <p className="m-0 mt-3">
-                    <span className="block text-[0.62rem] font-bold uppercase tracking-[0.28em] text-brand-lake">
+                    <span className="block text-[0.62rem] font-bold tracking-[0.04em] text-brand-lake">
                       Office
                     </span>
                     <a
@@ -176,7 +176,7 @@ export default function Footer() {
                     </a>
                   </p>
                   <p className="m-0 mt-3">
-                    <span className="block text-[0.62rem] font-bold uppercase tracking-[0.28em] text-brand-lake">
+                    <span className="block text-[0.62rem] font-bold tracking-[0.04em] text-brand-lake">
                       Office Address
                     </span>
                     1700 Rt. 23 North, Suite 300
@@ -295,7 +295,7 @@ export default function Footer() {
 
         <div className="mt-10 border-t border-stone-200 pt-4 sm:mt-12 sm:pt-5">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <p className="max-w-[18rem] text-[0.54rem] font-bold uppercase leading-normal tracking-[0.22em] text-stone-400 sm:max-w-none sm:text-[0.62rem] sm:leading-none sm:tracking-[0.28em]">
+            <p className="max-w-[18rem] text-[0.54rem] font-bold leading-normal tracking-[0.04em] text-stone-400 sm:max-w-none sm:text-[0.62rem] sm:leading-none sm:tracking-[0.04em]">
               © 2026 Wayne NJ & Packanack Lake Real Estate. All rights reserved.
             </p>
 

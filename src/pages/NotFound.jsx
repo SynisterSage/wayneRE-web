@@ -15,7 +15,7 @@ export default function NotFound() {
       <Section>
         <Container className="py-24 sm:py-28 lg:py-32">
           <div className="mx-auto flex max-w-xl flex-col items-start gap-6">
-            <p className="text-[0.625rem] font-bold uppercase tracking-[0.35em] text-brand-lake">
+            <p className="text-[0.625rem] font-bold tracking-[0.04em] text-brand-lake">
               404
             </p>
             <h1 className="font-serif text-[clamp(2.75rem,6vw,4.5rem)] font-medium leading-[0.96] tracking-[-0.03em] text-stone-900">

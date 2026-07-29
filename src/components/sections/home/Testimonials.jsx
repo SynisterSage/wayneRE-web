@@ -111,7 +111,7 @@ export default function Testimonials() {
                     — {activeTestimonial.name}
                   </p>
                   {activeTestimonial.since ? (
-                    <p className="mt-2 text-[0.62rem] font-bold uppercase tracking-[0.3em] text-stone-500">
+                    <p className="mt-2 text-[0.62rem] font-bold tracking-[0.04em] text-stone-500">
                       {activeTestimonial.since}
                     </p>
                   ) : null}

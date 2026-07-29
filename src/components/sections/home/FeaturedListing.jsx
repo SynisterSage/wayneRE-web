@@ -26,7 +26,7 @@ export default function FeaturedListing() {
           {imageUrl ? <img src={imageUrl} alt={listing.heroImage.alt || listing.title} className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:transform-none" loading="lazy" decoding="async" /> : <div className="aspect-[4/3]" />}
         </Link>
         <div>
-          <p className="text-[0.65rem] font-bold uppercase tracking-[0.35em] text-brand-lake">A home currently represented</p>
+          <p className="text-[0.65rem] font-bold tracking-[0.04em] text-brand-lake">A home currently represented</p>
           <h2 className="mt-5 font-serif text-[clamp(2.5rem,4vw,4.5rem)] font-medium leading-[1] tracking-[-0.04em] text-stone-900">{listing.title}</h2>
           <p className="mt-4 text-[1rem] leading-[1.6] text-stone-700">{listing.displayAddress}</p>
           {formatPrice(listing.price) ? <p className="mt-6 text-xl text-stone-900">{formatPrice(listing.price)}</p> : null}

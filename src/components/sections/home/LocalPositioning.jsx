@@ -73,7 +73,7 @@ export default function LocalPositioning() {
           </blockquote>
 
           <p
-            className={`mt-10 text-[0.625rem] font-bold uppercase tracking-[0.3em] text-stone-700 transition-[opacity,transform] duration-700 ease-out motion-reduce:transition-none ${
+            className={`mt-10 text-[0.625rem] font-bold tracking-[0.04em] text-stone-700 transition-[opacity,transform] duration-700 ease-out motion-reduce:transition-none ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
             }`}
             style={{ transitionDelay: isVisible ? '300ms' : '0ms', willChange: 'opacity, transform' }}

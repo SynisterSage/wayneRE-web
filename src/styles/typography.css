@@ -34,8 +34,7 @@ h3 {
 .eyebrow {
   margin: 0 0 var(--space-2);
   font-size: 0.625rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
+  letter-spacing: 0.04em;
   font-weight: 700;
   color: var(--color-text-muted);
 }

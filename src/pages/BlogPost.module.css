@@ -23,10 +23,9 @@
   color: var(--color-brand-lake);
   font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.04em;
   line-height: 1.4;
   text-decoration: none;
-  text-transform: uppercase;
 }
 
 .backLink:hover {
@@ -46,9 +45,8 @@
   color: var(--color-stone-500);
   font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.04em;
   line-height: 1.4;
-  text-transform: uppercase;
 }
 
 .title {

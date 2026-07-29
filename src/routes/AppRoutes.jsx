@@ -32,7 +32,9 @@ export default function AppRoutes() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/listings" element={<Listings />} />
+        <Route path="/listing" element={<Listings />} />
         <Route path="/listings/:slug" element={<ListingDetail />} />
+        <Route path="/listing/:slug" element={<ListingDetail />} />
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/consult" element={<Consult />} />
         <Route path="/contact" element={<Contact />} />
