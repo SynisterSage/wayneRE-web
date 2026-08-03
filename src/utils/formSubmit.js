@@ -1,3 +1,27 @@
+export function clearContactValidation(form) {
+  form.elements.namedItem('email')?.setCustomValidity('');
+  form.elements.namedItem('phone')?.setCustomValidity('');
+}
+
+export function validateNameAndContact(form, nameField = 'name') {
+  const nameInput = form.elements.namedItem(nameField);
+  const emailInput = form.elements.namedItem('email');
+  const phoneInput = form.elements.namedItem('phone');
+  const hasEmail = emailInput?.value.trim();
+  const hasPhone = phoneInput?.value.trim();
+
+  emailInput?.setCustomValidity('');
+  phoneInput?.setCustomValidity('');
+
+  if (!hasEmail && !hasPhone) {
+    const message = 'Enter an email address or phone number.';
+    emailInput?.setCustomValidity(message);
+    phoneInput?.setCustomValidity(message);
+  }
+
+  return form.reportValidity() && Boolean(nameInput?.value.trim()) && Boolean(hasEmail || hasPhone);
+}
+
 export async function submitFormSubmit(endpoint, formData) {
   const isLocalhost =
     typeof window !== 'undefined' &&

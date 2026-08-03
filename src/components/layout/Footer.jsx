@@ -222,12 +222,16 @@ export default function Footer() {
             </p>
 
             <form
-              className="mt-3 flex max-w-sm overflow-hidden border border-stone-300 bg-white sm:mt-4"
+              className="mt-3 max-w-sm border border-stone-300 bg-white sm:mt-4"
               onSubmit={async (event) => {
                 event.preventDefault();
                 const form = event.currentTarget;
+                const name = form.name.value?.trim();
                 const email = form.email.value?.trim();
-                if (!email) return;
+                if (!name || !email) {
+                  form.reportValidity();
+                  return;
+                }
 
                 setSubscribeStatus('loading');
                 setSubscribeFeedback('');
@@ -236,6 +240,7 @@ export default function Footer() {
                 fd.append('_subject', 'Newsletter signup — Wayne Journal');
                 fd.append('_template', 'table');
                 fd.append('_captcha', 'false');
+                fd.append('Name', name);
                 fd.append('Newsletter Email', email);
 
                 try {
@@ -261,18 +266,28 @@ export default function Footer() {
                 }
               }}
             >
-              <input
-                type="email"
-                name="email"
-                aria-label="Email address"
-                placeholder="Email address"
-                className="min-w-0 flex-1 border-0 bg-transparent px-3 py-2.5 text-[0.92rem] text-stone-900 placeholder:text-stone-400 focus:outline-none sm:px-4 sm:py-3 sm:text-[0.95rem]"
-                required
-              />
+              <div className="flex border-b border-stone-300">
+                <input
+                  type="text"
+                  name="name"
+                  aria-label="Name"
+                  placeholder="Name"
+                  className="min-w-0 flex-1 border-0 bg-transparent px-3 py-2.5 text-[0.92rem] text-stone-900 placeholder:text-stone-400 focus:outline-none sm:px-4 sm:py-3 sm:text-[0.95rem]"
+                  required
+                />
+                <input
+                  type="email"
+                  name="email"
+                  aria-label="Email address"
+                  placeholder="Email address"
+                  className="min-w-0 flex-1 border-0 border-l border-stone-300 bg-transparent px-3 py-2.5 text-[0.92rem] text-stone-900 placeholder:text-stone-400 focus:outline-none sm:px-4 sm:py-3 sm:text-[0.95rem]"
+                  required
+                />
+              </div>
               <button
                 type="submit"
                 disabled={subscribeStatus === 'loading'}
-                className="flex items-center justify-center gap-2 border-0 bg-stone-900 px-4 py-2.5 text-[0.92rem] text-brand-cream transition-colors duration-200 hover:bg-stone-800 disabled:opacity-60 sm:py-3 sm:text-[0.95rem]"
+                className="flex w-full items-center justify-center gap-2 border-0 bg-stone-900 px-4 py-2.5 text-[0.92rem] text-brand-cream transition-colors duration-200 hover:bg-stone-800 disabled:opacity-60 sm:py-3 sm:text-[0.95rem]"
               >
                 {subscribeStatus === 'loading' ? (
                   'Sending'

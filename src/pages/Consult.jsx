@@ -3,7 +3,7 @@ import { Seo } from '../utils/seo.js';
 import Button from '../components/ui/Button.jsx';
 import Container from '../components/ui/Container.jsx';
 import Section from '../components/ui/Section.jsx';
-import { submitFormSubmit } from '../utils/formSubmit.js';
+import { clearContactValidation, submitFormSubmit, validateNameAndContact } from '../utils/formSubmit.js';
 import styles from './Consult.module.css';
 
 const FORM_ENDPOINT = 'https://formsubmit.co/ajax/starletferguson@gmail.com';
@@ -31,6 +31,7 @@ export default function Consult() {
 
   function handleChange(event) {
     const { name, value } = event.target;
+    clearContactValidation(event.currentTarget.form);
     setForm((current) => ({ ...current, [name]: value }));
 
     if (status !== 'loading') {
@@ -41,6 +42,7 @@ export default function Consult() {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    if (!validateNameAndContact(event.currentTarget, 'fullName')) return;
     setStatus('loading');
     setFeedback('');
 
@@ -216,14 +218,13 @@ export default function Consult() {
                   </label>
 
                   <label className={styles.field}>
-                    <span>Email</span>
+                    <span>Email or phone</span>
                     <input
                       type="email"
                       name="email"
                       autoComplete="email"
                       value={form.email}
                       onChange={handleChange}
-                      required
                     />
                   </label>
 

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../../ui/Button.jsx';
 import Container from '../../ui/Container.jsx';
-import { submitFormSubmit } from '../../../utils/formSubmit.js';
+import { clearContactValidation, submitFormSubmit, validateNameAndContact } from '../../../utils/formSubmit.js';
 
 const contactDetails = [
   { label: 'Email', value: 'starletferguson@gmail.com' },
@@ -18,6 +18,7 @@ export default function FinalCTA() {
   const [form, setForm] = useState({
     name: '',
     email: '',
+    phone: '',
     interest: '',
     message: '',
   });
@@ -26,6 +27,7 @@ export default function FinalCTA() {
 
   function handleChange(event) {
     const { name, value } = event.target;
+    clearContactValidation(event.currentTarget.form);
     setForm((current) => ({ ...current, [name]: value }));
 
     if (status !== 'loading') {
@@ -36,6 +38,7 @@ export default function FinalCTA() {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    if (!validateNameAndContact(event.currentTarget)) return;
     setStatus('loading');
     setFeedback('');
 
@@ -45,12 +48,13 @@ export default function FinalCTA() {
     payload.append('_captcha', 'false');
     payload.append('Name', form.name);
     payload.append('Email', form.email);
+    payload.append('Phone', form.phone);
     payload.append('Interest', form.interest);
     payload.append('Message', form.message);
 
     try {
       await submitFormSubmit('https://formsubmit.co/ajax/starletferguson@gmail.com', payload);
-      setForm({ name: '', email: '', interest: '', message: '' });
+      setForm({ name: '', email: '', phone: '', interest: '', message: '' });
       setStatus('success');
       setFeedback('Your message has been sent. Starlet will follow up shortly.');
     } catch (error) {
@@ -143,7 +147,7 @@ export default function FinalCTA() {
                   </label>
                   <label className="block">
                     <span className="mb-2 block text-[0.7rem] font-bold tracking-[0.04em] text-stone-500">
-                      Email
+                      Email or phone
                     </span>
                     <input
                       type="email"
@@ -152,7 +156,20 @@ export default function FinalCTA() {
                       value={form.email}
                       onChange={handleChange}
                       className="w-full border border-stone-300 bg-white px-4 py-3 text-[0.98rem] text-stone-900 placeholder:text-stone-400 focus:border-brand-lake focus:outline-none"
-                      required
+                    />
+                  </label>
+                  <label className="block">
+                    <span className="mb-2 block text-[0.7rem] font-bold tracking-[0.04em] text-stone-500">
+                      Phone
+                    </span>
+                    <input
+                      type="tel"
+                      name="phone"
+                      autoComplete="tel"
+                      placeholder="(862) 226-9281"
+                      value={form.phone}
+                      onChange={handleChange}
+                      className="w-full border border-stone-300 bg-white px-4 py-3 text-[0.98rem] text-stone-900 placeholder:text-stone-400 focus:border-brand-lake focus:outline-none"
                     />
                   </label>
                 </div>

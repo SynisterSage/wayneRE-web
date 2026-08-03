@@ -3,12 +3,13 @@ import { Seo } from '../utils/seo.js';
 import Button from '../components/ui/Button.jsx';
 import Container from '../components/ui/Container.jsx';
 import Section from '../components/ui/Section.jsx';
-import { submitFormSubmit } from '../utils/formSubmit.js';
+import { clearContactValidation, submitFormSubmit, validateNameAndContact } from '../utils/formSubmit.js';
 import styles from './HomeValue.module.css';
 
 const FORM_ENDPOINT = 'https://formsubmit.co/ajax/starletferguson@gmail.com';
 
 const initialForm = {
+  name: '',
   address: '',
   city: '',
   moveDate: '',
@@ -33,6 +34,7 @@ export default function HomeValue() {
 
   function handleChange(event) {
     const { name, value } = event.target;
+    clearContactValidation(event.currentTarget.form);
     setForm((current) => ({ ...current, [name]: value }));
     if (status !== 'loading') {
       setStatus('idle');
@@ -42,6 +44,7 @@ export default function HomeValue() {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    if (!validateNameAndContact(event.currentTarget)) return;
     setStatus('loading');
     setFeedback('');
 
@@ -50,6 +53,7 @@ export default function HomeValue() {
     payload.append('_template', 'table');
     payload.append('_captcha', 'false');
     payload.append('Address', form.address);
+    payload.append('Name', form.name);
     payload.append('City', form.city);
     payload.append('Approximate Date of Move', form.moveDate);
     payload.append('Preferred Contact Method', form.preferredContactMethod);
@@ -106,6 +110,19 @@ export default function HomeValue() {
                   <input type="hidden" name="_captcha" value="false" />
 
                   <div className={styles.fieldGrid}>
+                    <label className={`${styles.field} ${styles.spanTwo}`}>
+                      <span>Name</span>
+                      <input
+                        type="text"
+                        name="name"
+                        autoComplete="name"
+                        placeholder="Your name"
+                        value={form.name}
+                        onChange={handleChange}
+                        required
+                      />
+                    </label>
+
                     <label className={`${styles.field} ${styles.spanTwo}`}>
                       <span>Address</span>
                       <input
@@ -173,7 +190,7 @@ export default function HomeValue() {
                     </label>
 
                     <label className={styles.field}>
-                      <span>Email</span>
+                      <span>Email or phone</span>
                       <input
                         type="email"
                         name="email"
