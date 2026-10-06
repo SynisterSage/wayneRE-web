@@ -1,6 +1,12 @@
 export const testimonials = [
   {
     quote:
+      'I cannot say enough wonderful things about Starlet! From beginning to end, she made the entire process of selling our home completely seamless and stress-free. Her professionalism, knowledge, responsiveness, and attention to detail were outstanding. Starlet was always one step ahead, kept us informed throughout the entire process, and handled every detail with such care and confidence. Selling a home can be incredibly stressful, but she truly made the experience feel effortless. We always felt that she had our best interests at heart and that we were in excellent hands. Thanks to Starlet, everything went smoothly from listing to closing, and we could not have asked for a better realtor or a better experience. She is absolutely amazing at what she does, and I would recommend her without hesitation to anyone looking to buy or sell a home. Thank you, Starlet, for making such an important transition in our lives so easy and flawless. You are truly the best!',
+    name: 'Michelle Dyer',
+    since: 'Seller client',
+  },
+  {
+    quote:
       "Starlet did an outstanding job assisting us with the selling of our house. Her expertise in and knowledge of the market and specifically Wayne Township area was instrumental in getting us competitive offers.",
     name: 'J. Assaf',
     since: 'Wayne resident',
